@@ -1,67 +1,119 @@
 'use client';
 
 import { useLang } from '@/components/providers/LangProvider';
-import { Clock, Stethoscope, Users, CheckCircle } from 'lucide-react';
+import { Handshake, Network, Lightbulb, ShieldCheck, Eye } from 'lucide-react';
+import { FadeUp, StaggerContainer, StaggerItem } from '@/components/motion';
 
-const stats = [
-  { value: '25K+', key: 'whyUs.stat1' },
-  { value: '450+', key: 'whyUs.stat2' },
-  { value: '100+', key: 'whyUs.stat3' },
-  { value: '5+', key: 'whyUs.stat4' },
-];
-
-const benefits = [
-  { icon: Clock, titleKey: 'whyUs.benefit1', descKey: 'whyUs.benefit1Desc' },
-  { icon: Stethoscope, titleKey: 'whyUs.benefit2', descKey: 'whyUs.benefit2Desc' },
-  { icon: Users, titleKey: 'whyUs.benefit3', descKey: 'whyUs.benefit3Desc' },
+const pillars = [
+  {
+    icon: Handshake,
+    titleEn: 'Trusted Partnerships',
+    titleAr: 'شراكات موثوقة',
+    descEn: 'Strong, reliable partnerships across the healthcare sector built on mutual trust and shared goals.',
+    descAr: 'شراكات قوية وموثوقة في القطاع الصحي مبنية على الثقة المتبادلة والأهداف المشتركة.',
+  },
+  {
+    icon: Network,
+    titleEn: 'Strategic Network',
+    titleAr: 'شبكة علاقات استراتيجية',
+    descEn: 'A vast strategic network in the medical field connecting professionals, organizations, and opportunities.',
+    descAr: 'شبكة علاقات استراتيجية واسعة في المجال الطبي تربط المتخصصين والمؤسسات والفرص.',
+  },
+  {
+    icon: Lightbulb,
+    titleEn: 'Creative Execution',
+    titleAr: 'التنفيذ الإبداعي',
+    descEn: 'Innovative and creative approaches to every project, ensuring impactful and distinctive outcomes.',
+    descAr: 'أساليب مبتكرة وإبداعية في كل مشروع، لضمان نتائج مؤثرة ومتميزة.',
+  },
+  {
+    icon: ShieldCheck,
+    titleEn: 'Professional Commitment',
+    titleAr: 'الالتزام المهني',
+    descEn: 'Unwavering professional dedication with measurable results and accountability at every stage.',
+    descAr: 'التزام مهني راسخ مع نتائج قابلة للقياس ومسؤولية في كل مرحلة.',
+  },
+  {
+    icon: Eye,
+    titleEn: 'Full Transparency',
+    titleAr: 'شفافية ووضوح كاملين',
+    descEn: 'Complete transparency and clarity in all operations to ensure strong, measurable results.',
+    descAr: 'شفافية ووضوح كاملين في جميع العمليات لضمان نتائج قوية وقابلة للقياس.',
+  },
 ];
 
 export default function WhyUs() {
-  const { t } = useLang();
+  const { locale, t } = useLang();
+  const isAr = locale === 'ar';
 
   return (
-    <section className="py-20 lg:py-28 bg-primary-900" id="whyus">
+    <section className="py-24 lg:py-32 bg-[#0C2340]" id="whyus" dir={isAr ? 'rtl' : 'ltr'}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
+
         {/* Header */}
-        <div className="max-w-2xl mb-16">
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-accent-light mb-4">
+        <FadeUp className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+          <span className="inline-block text-sm font-bold tracking-widest uppercase mb-5"
+            style={{ color: '#B82D73' }}>
             {t('whyUs.label')}
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight text-white mb-6">
             {t('whyUs.title')}
           </h2>
-          <p className="text-white/60 text-base leading-relaxed">
+          <p className="text-base leading-[1.7]" style={{ color: 'rgba(255,255,255,0.56)' }}>
             {t('whyUs.subtitle')}
           </p>
-        </div>
+        </FadeUp>
 
-        {/* Stats Row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat, i) => (
-            <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6">
-              <div className="text-3xl sm:text-4xl font-bold text-white mb-1">{stat.value}</div>
-              <div className="text-sm text-white/50">{t(stat.key)}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Benefits */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {benefits.map((benefit, i) => {
-            const Icon = benefit.icon;
+        {/* Top row: 3 pillars */}
+        <StaggerContainer className="grid md:grid-cols-3 gap-5 mb-5" staggerDelay={0.12}>
+          {pillars.slice(0, 3).map((p, i) => {
+            const Icon = p.icon;
             return (
-              <div key={i} className="flex gap-4">
-                <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-6 h-6 text-accent-light" />
+              <StaggerItem key={i}>
+                <div className="rounded-2xl p-8 text-center"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-5"
+                    style={{ backgroundColor: 'rgba(155,27,94,0.2)' }}>
+                    <Icon className="w-5 h-5" style={{ color: '#B82D73' }} />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {isAr ? p.titleAr : p.titleEn}
+                  </h3>
+                  <p className="text-sm leading-[1.6]" style={{ color: 'rgba(255,255,255,0.48)' }}>
+                    {isAr ? p.descAr : p.descEn}
+                  </p>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{t(benefit.titleKey)}</h3>
-                  <p className="text-sm text-white/50 leading-relaxed">{t(benefit.descKey)}</p>
-                </div>
-              </div>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerContainer>
+
+        {/* Bottom row: 2 pillars */}
+        <StaggerContainer className="grid md:grid-cols-2 gap-5" staggerDelay={0.12}>
+          {pillars.slice(3).map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <StaggerItem key={i}>
+                <div className="rounded-2xl p-8 flex items-start gap-5"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: 'rgba(155,27,94,0.2)' }}>
+                    <Icon className="w-5 h-5" style={{ color: '#B82D73' }} />
+                  </div>
+                  <div className={isAr ? 'text-right' : ''}>
+                    <h3 className="text-lg font-bold text-white mb-2">
+                      {isAr ? p.titleAr : p.titleEn}
+                    </h3>
+                    <p className="text-sm leading-[1.6]" style={{ color: 'rgba(255,255,255,0.48)' }}>
+                      {isAr ? p.descAr : p.descEn}
+                    </p>
+                  </div>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+
       </div>
     </section>
   );

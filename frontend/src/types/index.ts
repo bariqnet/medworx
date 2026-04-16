@@ -33,6 +33,8 @@ export interface Blog {
 }
 
 // ============== MEETING ROOM ==============
+export type PriceType = 'hourly' | 'daily';
+
 export interface MeetingRoom {
   _id?: string;
   nameEn: string;
@@ -41,6 +43,7 @@ export interface MeetingRoom {
   floor: number;
   amenities: string[];
   pricePerHour: number;
+  priceType: PriceType;
   image?: string;
   isActive: boolean;
 }

@@ -36,7 +36,7 @@ export const translations = {
     ar: 'مدووركس هي المنظومة المتكاملة للقطاع الطبي — بيئة متخصصة يجد فيها المتخصصون في القطاع الصحي كل ما يحتاجونه للنمو تحت سقف واحد. من مساحات العمل عالية الجودة والتدريب إلى تنظيم الفعاليات والحلول الإبداعية، نجمع بين الأدوات والمساحات والشراكات ومجتمع طبي مزدهر. نقوم على مبدأ التعاون بدلاً من التنافس، نحتضن الكفاءات ونمكّنها ونربطها بفرص نمو حقيقية ضمن منظومة طبية صحية ومحفّزة.'
   },
   'about.location': { en: 'Prime Location', ar: 'موقع متميز' },
-  'about.locationDesc': { en: 'Al Harthya-Kindi St., Baghdad', ar: 'شارع الحارثية-الكندي، بغداد' },
+  'about.locationDesc': { en: 'Al Harthya-Kindi St., Baghdad', ar: 'بغداد الحارثية شارع الكندي' },
   'about.focus': { en: 'Medical Incubator', ar: 'حاضنة طبية' },
   'about.focusDesc': { en: 'Incubating healthcare projects', ar: 'احتضان المشاريع الصحية الواعدة' },
   'about.floors': { en: 'Shared Growth', ar: 'نمو مشترك' },
@@ -60,20 +60,20 @@ export const translations = {
   },
 
   // Services / Solutions
-  'services.label': { en: 'Workspace Solutions', ar: 'حلول مساحات العمل' },
-  'services.title': { en: 'Everything your medical business needs', ar: 'كل ما يحتاجه عملك الطبي' },
+  'services.label': { en: 'Core Services', ar: 'الخدمات الرئيسية' },
+  'services.title': { en: 'Core Services', ar: 'الخدمات الرئيسية' },
   'services.subtitle': {
-    en: 'From premium workspaces to professional development, we provide a complete ecosystem founded on collaboration, support, and shared growth for medical businesses to thrive.',
-    ar: 'من مساحات العمل المتميزة إلى التطوير المهني، نقدم نظاماً بيئياً متكاملاً يقوم على التعاون والدعم والتطوير المشترك لازدهار الأعمال الطبية.'
+    en: 'Administrative offices, training programs, and professional services designed for the medical sector.',
+    ar: 'مكاتب إدارية، برامج تدريبية، وخدمات مهنية مصممة للقطاع الطبي.'
   },
   'services.viewAll': { en: 'View All Solutions', ar: 'عرض جميع الحلول' },
 
   // Why Us
   'whyUs.label': { en: 'Why MedWorx', ar: 'لماذا مـدووركـس' },
-  'whyUs.title': { en: 'Trusted by medical professionals across Iraq', ar: 'موثوق من المهنيين الطبيين في أنحاء العراق' },
+  'whyUs.title': { en: 'Why MedWorx?', ar: 'لماذا مدووركس؟' },
   'whyUs.subtitle': {
-    en: 'We are committed to nurturing talent, empowering individuals, and connecting them with real growth opportunities — minimizing harmful competition and encouraging joint ventures.',
-    ar: 'نلتزم باحتضان الكفاءات وتمكينها، وربطها بفرص نمو حقيقية — مع تقليل التنافس السلبي وتشجيع المشاريع المشتركة.'
+    en: 'MedWorx combines trusted partnerships in the healthcare sector, a vast strategic network in the medical field, creative execution, and professional commitment — with full transparency and clarity to ensure strong, measurable results.',
+    ar: 'تجمع MedWorx بين الشراكات الموثوقة في القطاع الصحي، وشبكة علاقات استراتيجية واسعة في المجال الطبي، والتنفيذ الإبداعي، والالتزام المهني—مع شفافية ووضوح كاملين لضمان نتائج قوية وقابلة للقياس.'
   },
   'whyUs.stat1': { en: 'Community Members', ar: 'عضو في المجتمع' },
   'whyUs.stat2': { en: 'Medical Partners', ar: 'شريك طبي' },
@@ -88,10 +88,10 @@ export const translations = {
 
   // Spaces
   'spaces.label': { en: 'Our Spaces', ar: 'مساحاتنا' },
-  'spaces.title': { en: 'Spaces designed for every way you work', ar: 'مساحات مصممة لكل طريقة تعمل بها' },
+  'spaces.title': { en: 'Dynamic spaces that adapt to you', ar: 'مساحات ديناميكية تتكيّف مع احتياجاتك' },
   'spaces.subtitle': {
-    en: 'Whether you need a quiet desk, a collaborative team room, or a full conference hall — we have you covered.',
-    ar: 'سواء كنت بحاجة إلى مكتب هادئ أو غرفة فريق تعاونية أو قاعة مؤتمرات كاملة — لدينا ما يناسبك.'
+    en: 'Every space features dynamic, reconfigurable furniture that transforms to match your exact needs — from private consultations to team workshops to large-scale conferences.',
+    ar: 'كل مساحة مزودة بأثاث ديناميكي قابل لإعادة التشكيل يتحول ليتناسب مع احتياجاتك — من الاستشارات الخاصة إلى ورش العمل الجماعية إلى المؤتمرات الكبيرة.'
   },
 
   // CTA

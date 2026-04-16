@@ -2,6 +2,7 @@
 
 import { useLang } from '@/components/providers/LangProvider';
 import { ArrowRight, ArrowLeft, Phone } from 'lucide-react';
+import { motion } from '@/components/motion';
 
 export default function Hero() {
   const { locale, t } = useLang();
@@ -15,15 +16,18 @@ export default function Hero() {
         <div className="absolute inset-0 z-10"
           style={{
             background: isAr
-              ? 'linear-gradient(to left, rgba(12,35,64,0.97) 0%, rgba(12,35,64,0.90) 45%, rgba(12,35,64,0.70) 100%)'
-              : 'linear-gradient(to right, rgba(12,35,64,0.97) 0%, rgba(12,35,64,0.90) 45%, rgba(12,35,64,0.70) 100%)',
+              ? 'linear-gradient(to left, rgba(12,35,64,0.80) 0%, rgba(12,35,64,0.65) 45%, rgba(12,35,64,0.50) 100%)'
+              : 'linear-gradient(to right, rgba(12,35,64,0.80) 0%, rgba(12,35,64,0.65) 45%, rgba(12,35,64,0.50) 100%)',
           }}
         />
-        <div
+        <motion.div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80')`,
+            backgroundImage: `url('/h1.jpeg')`,
           }}
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.8, ease: [0.25, 0.1, 0.25, 1] }}
         />
       </div>
 
@@ -33,27 +37,52 @@ export default function Hero() {
       >
         <div className="max-w-2xl">
           {/* Brand Name */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-3"
-            style={{ color: '#B82D73' }}>
+          <motion.h1
+            className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-3"
+            style={{ color: '#B82D73' }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+          >
             {t('hero.title1')}
-          </h1>
+          </motion.h1>
 
           {/* Tagline */}
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white leading-[1.4] mb-8">
+          <motion.h2
+            className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white leading-[1.4] mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+          >
             {t('hero.titleHighlight')}{' '}{t('hero.title2')}
-          </h2>
+          </motion.h2>
 
           {/* Separator */}
-          <div className="w-12 h-[3px] rounded-full mb-8"
-            style={{ background: 'linear-gradient(90deg, #9B1B5E, #B82D73)' }} />
+          <motion.div
+            className="w-12 h-[3px] rounded-full mb-8"
+            style={{ background: 'linear-gradient(90deg, #9B1B5E, #B82D73)' }}
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          />
 
           {/* Description */}
-          <p className="text-base text-white/55 mb-10 leading-[1.8] max-w-lg">
+          <motion.p
+            className="text-base text-white/55 mb-10 leading-[1.8] max-w-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
             {t('hero.description')}
-          </p>
+          </motion.p>
 
           {/* CTAs */}
-          <div className="flex items-center gap-3 flex-wrap">
+          <motion.div
+            className="flex items-center gap-3 flex-wrap"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.0 }}
+          >
             {/* Primary CTA */}
             <a
               href="#services"
@@ -72,19 +101,24 @@ export default function Hero() {
               <Phone className="w-4 h-4" />
               {isAr ? 'اتصل بنا' : 'Call Us'}
             </a>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Stats Bar */}
-      <div className="absolute bottom-0 left-0 right-0 z-20">
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 z-20"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+      >
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
           <div className="bg-white rounded-t-2xl shadow-2xl shadow-black/10 px-6 sm:px-10 py-7 grid grid-cols-3"
             dir={isAr ? 'rtl' : 'ltr'}>
             {[
               { value: '25K+', label: t('hero.community') },
               { value: '450+', label: t('hero.partners') },
-              { value: '100+', label: t('hero.courses') },
+              { value: '1000+', label: t('hero.courses') },
             ].map((stat, i) => (
               <div
                 key={i}
@@ -96,7 +130,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

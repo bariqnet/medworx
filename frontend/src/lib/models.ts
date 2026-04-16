@@ -36,6 +36,7 @@ const MeetingRoomSchema = new Schema({
   floor: { type: Number, required: true, default: 5 },
   amenities: [{ type: String }],
   pricePerHour: { type: Number, required: true },
+  priceType: { type: String, enum: ['hourly', 'daily'], default: 'hourly' },
   image: { type: String, default: '' },
   isActive: { type: Boolean, default: true },
 }, { timestamps: true });

@@ -145,7 +145,9 @@ export default function BookingPage() {
                           <MapPin className="w-3 h-3" />
                           Floor {room.floor}
                         </span>
-                        <span>{room.pricePerHour?.toLocaleString()} IQD/hr</span>
+                        <span>
+                          {room.pricePerHour?.toLocaleString()} IQD/{room.priceType === 'daily' ? (locale === 'ar' ? 'يوم' : 'day') : (locale === 'ar' ? 'ساعة' : 'hr')}
+                        </span>
                       </div>
                     </label>
                   ))}

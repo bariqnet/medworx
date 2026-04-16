@@ -2,56 +2,56 @@
 
 import { useLang } from '@/components/providers/LangProvider';
 import { ArrowRight, ArrowLeft, Phone } from 'lucide-react';
+import { FadeUp } from '@/components/motion';
 
 export default function CTABanner() {
   const { locale, t } = useLang();
-  const Arrow = locale === 'ar' ? ArrowLeft : ArrowRight;
+  const isAr = locale === 'ar';
+  const Arrow = isAr ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="py-20 lg:py-24 bg-neutral-50">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
-        <div className="relative rounded-2xl overflow-hidden">
-          {/* Background */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-900 via-primary-dark to-primary-900 z-10" />
-            <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=60"
-              alt=""
-              className="w-full h-full object-cover opacity-30"
-              loading="lazy"
-            />
-          </div>
-
-          {/* Content */}
-          <div className="relative z-20 px-8 sm:px-12 lg:px-16 py-14 lg:py-20 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            <div className="max-w-xl">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-3">
-                {t('cta.title')}
-              </h2>
-              <p className="text-white/60 text-base leading-relaxed">
-                {t('cta.subtitle')}
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-primary-900 rounded-lg font-semibold text-sm hover:bg-neutral-100 transition-all no-underline"
-              >
-                {t('cta.button')}
-                <Arrow className="w-4 h-4" />
-              </a>
-              <a
-                href="tel:+9647760206080"
-                className="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm font-medium transition-colors no-underline"
-              >
-                <Phone className="w-4 h-4" />
-                +964 776 020 6080
-              </a>
-            </div>
-          </div>
-        </div>
+    <section className="relative min-h-[480px] lg:min-h-[520px] flex items-center" dir={isAr ? 'rtl' : 'ltr'}>
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 z-10"
+          style={{ background: 'rgba(12,35,64,0.80)' }} />
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url('/b45.JPG')` }}
+        />
       </div>
+
+      {/* Content */}
+      <FadeUp className="relative z-20 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 w-full py-20 lg:py-24 text-center">
+        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.2] tracking-tight mb-5">
+          {t('cta.title')}
+        </h2>
+        <p className="text-base leading-[1.6] max-w-xl mx-auto mb-10"
+          style={{ color: 'rgba(255,255,255,0.60)' }}>
+          {t('cta.subtitle')}
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-8 py-4 text-white font-medium text-sm no-underline hover:opacity-90 transition-opacity"
+            style={{ backgroundColor: '#9B1B5E', borderRadius: '980px' }}
+          >
+            {t('cta.button')}
+            <Arrow className="w-4 h-4 opacity-70" />
+          </a>
+          <a
+            href="tel:+9647760206080"
+            className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium no-underline transition-colors bg-white/10 backdrop-blur-sm rounded-full"
+            style={{ color: 'rgba(255,255,255,0.85)' }}
+          >
+            <span dir="ltr" className="inline-flex items-center gap-2">
+              <Phone className="w-4 h-4" />
+              +964 776 020 6080
+            </span>
+          </a>
+        </div>
+      </FadeUp>
     </section>
   );
 }
