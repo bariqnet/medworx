@@ -33,38 +33,69 @@ const spaces: Space[] = [
     ctaEn: 'Book Your Office',
     ctaAr: 'احجز مكتبك',
   },
+ 
   {
-    titleEn: 'Dedicated Desk',
-    titleAr: 'مكتب مخصص',
-    descEn: 'A dedicated desk in an adaptable shared workspace with flexible seating arrangements.',
-    descAr: 'مكتب مخصص في مساحة عمل مشتركة قابلة للتكيّف مع ترتيبات جلوس مرنة.',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
-    tagEn: 'From 180,000 IQD/mo',
-    tagAr: 'من 180,000 د.ع/شهر',
-    ctaEn: 'Book Your Desk',
-    ctaAr: 'احجز مقعدك',
-  },
-  {
-    titleEn: 'Conference Room',
-    titleAr: 'قاعة مؤتمرات',
-    descEn: 'Modular conference space with reconfigurable furniture and A/V equipment for up to 40 guests.',
-    descAr: 'قاعة مؤتمرات مرنة بأثاث قابل لإعادة التشكيل ومعدات سمعية وبصرية تسع حتى 40 ضيفاً.',
+    titleEn: 'Conference Hall',
+    titleAr: 'قاعة المؤتمرات',
+    descEn: 'Professional environment fully equipped for medical conferences and events — stage, podium, projector, sound system, and 2 smart screens.',
+    descAr: 'بيئة احترافية مجهزة بالكامل للمؤتمرات والفعاليات الطبية — ستيج، بوديوم، داتا شو، نظام صوت، وشاشتان ذكيتان.',
     image: 'https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=800&q=80',
-    tagEn: 'From 37,500 IQD/hr',
-    tagAr: 'من 37,500 د.ع/ساعة',
-    ctaEn: 'Book a Room',
-    ctaAr: 'احجز قاعة',
+    tagEn: '1,000,000 IQD/day',
+    tagAr: '1,000,000 د.ع/اليوم',
+    tagNoteEn: 'Capacity: 120 attendees',
+    tagNoteAr: 'السعة: 120 شخص',
+    ctaEn: 'Book the Hall',
+    ctaAr: 'احجز القاعة',
   },
   {
-    titleEn: 'Training Hall',
-    titleAr: 'قاعة تدريب',
-    descEn: 'Transformable training hall with dynamic layouts — classroom, theater, or workshop setup for up to 60 attendees.',
-    descAr: 'قاعة تدريب قابلة للتحويل بتخطيطات ديناميكية — صفي أو مسرحي أو ورشة عمل تسع حتى 60 حاضراً.',
+    titleEn: 'Training Halls (ق1 / ق2)',
+    titleAr: 'قاعات التدريب (ق1 / ق2)',
+    descEn: 'Two professional halls ideal for training and meetings. Each features a stage, professional smart screen, and flip chart.',
+    descAr: 'قاعتان احترافيتان مثاليتان للتدريب والاجتماعات. تحتوي كل قاعة على ستيج (منصة تقديم)، شاشة ذكية احترافية، وفليب تشارت.',
     image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80',
-    tagEn: 'From 60,000 IQD/hr',
-    tagAr: 'من 60,000 د.ع/ساعة',
+    tagEn: '45,000 IQD/hr',
+    tagAr: '45,000 د.ع/الساعة',
+    tagNoteEn: 'Capacity: 40 per hall · 2 halls available',
+    tagNoteAr: 'السعة: 40 شخص لكل قاعة · قاعتان متاحتان',
     ctaEn: 'Book a Hall',
     ctaAr: 'احجز قاعة',
+  },
+  {
+    titleEn: 'Small Meeting Rooms (ق3 / ق4)',
+    titleAr: 'غرف الاجتماعات الصغيرة (ق3 / ق4)',
+    descEn: 'Quiet rooms suited for small meetings and private sessions. A focused environment that supports productivity, equipped with a smart screen.',
+    descAr: 'غرف هادئة مناسبة للاجتماعات الصغيرة والجلسات الخاصة. بيئة هادئة تضمن التركيز والإنتاجية، ومزوّدة بشاشة ذكية.',
+    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80',
+    tagEn: '25,000 IQD/hr',
+    tagAr: '25,000 د.ع/الساعة',
+    tagNoteEn: 'Capacity: 15 – 20 attendees · 2 rooms available',
+    tagNoteAr: 'السعة: 15 – 20 شخص · غرفتان متاحتان',
+    ctaEn: 'Book a Room',
+    ctaAr: 'احجز غرفة',
+  },
+  {
+    titleEn: 'Podcast Room',
+    titleAr: 'غرفة البودكاست',
+    descEn: 'A high-privacy room dedicated to professional recording and private meetings — built to capture content at studio quality.',
+    descAr: 'غرفة بخصوصية عالية مخصصة للتصوير الاحترافي أو الاجتماعات الخاصة — بيئة مناسبة لتسجيل محتوى بجودة احترافية.',
+    image: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80',
+    tagEn: '30,000 IQD/hr',
+    tagAr: '30,000 د.ع/الساعة',
+    tagNoteEn: 'Capacity: 5 attendees',
+    tagNoteAr: 'السعة: 5 أشخاص',
+    ctaEn: 'Book the Room',
+    ctaAr: 'احجز الغرفة',
+  },
+  {
+    titleEn: 'Interview Room',
+    titleAr: 'غرفة المقابلات',
+    descEn: 'A dedicated room for interviews and structured meetings — professional environment with a smart screen and reception system to coordinate appointments.',
+    descAr: 'غرفة مخصصة للمقابلات والاجتماعات المنظمة — بيئة احترافية تضمن الخصوصية والتنظيم، مع شاشة ذكية ونظام رسبشن لتنظيم مواعيد المقابلات.',
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
+    tagEn: '30,000 IQD/hr',
+    tagAr: '30,000 د.ع/الساعة',
+    ctaEn: 'Book the Room',
+    ctaAr: 'احجز الغرفة',
   },
 ];
 
@@ -93,12 +124,12 @@ export default function Spaces() {
         </FadeUp>
 
         {/* Spaces Grid */}
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" staggerDelay={0.1}>
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.08}>
           {spaces.map((space, i) => (
-            <StaggerItem key={i}>
-              <div className="bg-white rounded-2xl overflow-hidden group">
+            <StaggerItem key={i} className="h-full">
+              <div className="bg-white rounded-2xl overflow-hidden group h-full flex flex-col">
                 {/* Image */}
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden flex-shrink-0">
                   <img
                     src={space.image}
                     alt={isAr ? space.titleAr : space.titleEn}
@@ -108,14 +139,14 @@ export default function Spaces() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <h3 className="text-base font-semibold mb-2" style={{ color: '#1d1d1f' }}>
                     {isAr ? space.titleAr : space.titleEn}
                   </h3>
                   <p className="text-sm leading-[1.5] mb-4" style={{ color: 'rgba(0,0,0,0.48)' }}>
                     {isAr ? space.descAr : space.descEn}
                   </p>
-                  <div className="flex flex-col gap-3 pt-3" style={{ borderTop: '1px solid #f5f5f7' }}>
+                  <div className="mt-auto flex flex-col gap-3 pt-3" style={{ borderTop: '1px solid #f5f5f7' }}>
                     <div className="flex flex-col">
                       <span className="text-sm font-semibold whitespace-nowrap" style={{ color: '#9B1B5E' }}>
                         {isAr ? space.tagAr : space.tagEn}
