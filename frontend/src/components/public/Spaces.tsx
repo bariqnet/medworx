@@ -1,8 +1,8 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useLang } from '@/components/providers/LangProvider';
-import { ArrowRight, ArrowLeft } from 'lucide-react';
-import Link from 'next/link';
+import { ArrowRight, ArrowLeft, X } from 'lucide-react';
 import { FadeUp, StaggerContainer, StaggerItem } from '@/components/motion';
 
 type Space = {
@@ -116,6 +116,7 @@ export default function Spaces() {
   const { locale, t } = useLang();
   const isAr = locale === 'ar';
   const Arrow = isAr ? ArrowLeft : ArrowRight;
+  const [selected, setSelected] = useState<Space | null>(null);
 
   return (
     <section className="py-24 lg:py-32 bg-[#f5f5f7]" id="spaces" dir={isAr ? 'rtl' : 'ltr'}>
@@ -170,14 +171,15 @@ export default function Spaces() {
                         </span>
                       )}
                     </div>
-                    <Link
-                      href="/booking"
-                      className={`inline-flex items-center gap-1 text-sm font-medium no-underline transition-colors ${isAr ? 'self-end' : 'self-start'}`}
-                      style={{ color: '#9B1B5E' }}
+                    <button
+                      type="button"
+                      onClick={() => setSelected(space)}
+                      className={`inline-flex items-center gap-1 text-sm font-medium transition-colors hover:opacity-80 ${isAr ? 'self-end' : 'self-start'}`}
+                      style={{ color: '#9B1B5E', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
                     >
                       {isAr ? space.ctaAr : space.ctaEn}
                       <Arrow className="w-3.5 h-3.5" />
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -186,6 +188,200 @@ export default function Spaces() {
         </StaggerContainer>
 
       </div>
+
+      {selected && (
+        <BookingModal
+          space={selected}
+          isAr={isAr}
+          onClose={() => setSelected(null)}
+        />
+      )}
     </section>
+  );
+}
+
+const WHATSAPP_NUMBER = '9647760206080';
+
+function BookingModal({
+  space,
+  isAr,
+  onClose,
+}: {
+  space: Space;
+  isAr: boolean;
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [onClose]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    const spaceName = isAr ? space.titleAr : space.titleEn;
+    const price = isAr ? space.tagAr : space.tagEn;
+
+    const lines = isAr
+      ? [
+          'طلب حجز جديد',
+          '',
+          `المساحة: ${spaceName}`,
+          `السعر المعلن: ${price}`,
+          '',
+          `الاسم: ${fd.get('name')}`,
+          `الهاتف: ${fd.get('phone')}`,
+          `البريد: ${fd.get('email') || '-'}`,
+          `التاريخ: ${fd.get('date')}`,
+          `الوقت: ${fd.get('startTime')} - ${fd.get('endTime')}`,
+          `عدد الحضور: ${fd.get('attendees') || '-'}`,
+          `ملاحظات: ${fd.get('notes') || '-'}`,
+        ]
+      : [
+          'New booking request',
+          '',
+          `Space: ${spaceName}`,
+          `Listed price: ${price}`,
+          '',
+          `Name: ${fd.get('name')}`,
+          `Phone: ${fd.get('phone')}`,
+          `Email: ${fd.get('email') || '-'}`,
+          `Date: ${fd.get('date')}`,
+          `Time: ${fd.get('startTime')} - ${fd.get('endTime')}`,
+          `Attendees: ${fd.get('attendees') || '-'}`,
+          `Notes: ${fd.get('notes') || '-'}`,
+        ];
+
+    const text = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
+    onClose();
+  };
+
+  const today = new Date().toISOString().split('T')[0];
+  const inputClass =
+    'w-full px-3.5 py-2.5 border border-neutral-200 rounded-lg text-neutral-900 text-sm bg-white placeholder:text-neutral-400 focus:border-[#9B1B5E] focus:ring-2 focus:ring-[#9B1B5E]/15 outline-none transition-all';
+
+  return (
+    <div
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 animate-fade-in"
+      style={{ backgroundColor: 'rgba(12,35,64,0.55)' }}
+      onClick={onClose}
+      dir={isAr ? 'rtl' : 'ltr'}
+    >
+      <div
+        className="bg-white rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-start justify-between p-6 pb-4" style={{ borderBottom: '1px solid #f5f5f7' }}>
+          <div className="min-w-0">
+            <p className="text-xs font-semibold uppercase tracking-wider mb-1" style={{ color: '#9B1B5E' }}>
+              {isAr ? 'طلب حجز' : 'Booking Request'}
+            </p>
+            <h3 className="text-lg font-bold truncate" style={{ color: '#1d1d1f' }}>
+              {isAr ? space.titleAr : space.titleEn}
+            </h3>
+            <p className="text-sm mt-0.5" style={{ color: '#9B1B5E' }}>
+              {isAr ? space.tagAr : space.tagEn}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="inline-flex items-center justify-center w-9 h-9 rounded-lg flex-shrink-0 hover:bg-neutral-100 transition-colors"
+            aria-label={isAr ? 'إغلاق' : 'Close'}
+            style={{ color: '#737373', background: 'none', border: 'none', cursor: 'pointer' }}
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="p-6 pt-5 flex flex-col gap-4">
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
+                {isAr ? 'الاسم الكامل' : 'Full Name'}
+              </label>
+              <input name="name" required className={inputClass} />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
+                {isAr ? 'رقم الهاتف' : 'Phone'}
+              </label>
+              <input name="phone" type="tel" required className={inputClass} dir="ltr" />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
+              {isAr ? 'البريد الإلكتروني (اختياري)' : 'Email (optional)'}
+            </label>
+            <input name="email" type="email" className={inputClass} dir="ltr" />
+          </div>
+
+          <div className="grid grid-cols-3 gap-3">
+            <div className="col-span-3 sm:col-span-1">
+              <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
+                {isAr ? 'التاريخ' : 'Date'}
+              </label>
+              <input name="date" type="date" required min={today} className={inputClass} />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
+                {isAr ? 'من' : 'From'}
+              </label>
+              <input name="startTime" type="time" required className={inputClass} />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
+                {isAr ? 'إلى' : 'To'}
+              </label>
+              <input name="endTime" type="time" required className={inputClass} />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
+              {isAr ? 'عدد الحضور (اختياري)' : 'Number of attendees (optional)'}
+            </label>
+            <input name="attendees" type="number" min="1" className={inputClass} />
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
+              {isAr ? 'ملاحظات (اختياري)' : 'Notes (optional)'}
+            </label>
+            <textarea name="notes" rows={3} className={`${inputClass} resize-y`} />
+          </div>
+
+          <div className="flex flex-col-reverse sm:flex-row gap-3 pt-2">
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex-1 py-3 rounded-lg text-sm font-semibold transition-colors"
+              style={{ backgroundColor: '#f5f5f7', color: '#404040', border: 'none', cursor: 'pointer' }}
+            >
+              {isAr ? 'إلغاء' : 'Cancel'}
+            </button>
+            <button
+              type="submit"
+              className="flex-1 inline-flex items-center justify-center py-3 rounded-lg text-sm font-semibold text-white transition-colors hover:opacity-95"
+              style={{ backgroundColor: '#0C2340', border: 'none', cursor: 'pointer' }}
+            >
+              {isAr ? 'إرسال الطلب' : 'Submit Request'}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
