@@ -27,7 +27,7 @@ const spaces: Space[] = [
     descAr: 'مكتبك الخاص المؤمن مع أثاث ديناميكي قابل لإعادة التشكيل حسب طبيعة عملك.',
     image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80',
     tagEn: '800,000 – 2,000,000 IQD/mo',
-    tagAr: 'من ٨٠٠,٠٠٠ إلى ٢,٠٠٠,٠٠٠ د.ع/شهر',
+    tagAr: 'من 800,000 إلى 2,000,000 د.ع/شهر',
     tagNoteEn: 'Varies by office size',
     tagNoteAr: 'حسب مساحة المكتب',
     ctaEn: 'Book Your Office',
