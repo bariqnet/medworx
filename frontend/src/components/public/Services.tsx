@@ -19,7 +19,7 @@ const services = [
     titleAr: 'قاعات وغرف للفعاليات والاجتماعات والتدريب',
     descEn: 'MedWorx offers a complete collection of 8 fully equipped rooms and halls designed for medical events, professional meetings, and training programs, with capacities ranging from 10 to 100 attendees. Each space is built with modern audio-visual technology, flexible seating layouts, and a refined business atmosphere to support workshops, seminars, conferences, and corporate gatherings of any scale — all within a dedicated medical environment in the heart of Baghdad.',
     descAr: 'توفر مدووركس مجموعة متكاملة بعدد ٨ قاعات وغرف مجهزة بالكامل ومصممة لاستضافة الفعاليات الطبية والاجتماعات المهنية والبرامج التدريبية، تستوعب من ١٠ إلى ١٠٠ شخص. كل مساحة مزوّدة بأحدث التقنيات السمعية والبصرية، وتنسيقات جلوس مرنة، وأجواء مهنية راقية تدعم ورش العمل والندوات والمؤتمرات والاجتماعات بمختلف أحجامها، ضمن بيئة طبية متخصصة في قلب بغداد.',
-    image: '/h1.jpeg',
+    image: '/b8.jpeg',
   },
   {
     icon: GraduationCap,
