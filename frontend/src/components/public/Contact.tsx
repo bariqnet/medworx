@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useLang } from '@/components/providers/LangProvider';
-import { MapPin, Phone, Mail, Clock, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, CheckCircle, Navigation } from 'lucide-react';
 import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@/components/motion';
 
 export default function Contact() {
@@ -59,7 +59,7 @@ export default function Contact() {
     {
       icon: Clock,
       title: isAr ? 'ساعات العمل' : 'Working Hours',
-      desc: isAr ? 'السبت - الخميس: 9 ص - 8 م' : 'Sat - Thu: 9 AM - 8 PM',
+      desc: isAr ? 'كل الأيام: 9 ص - 1 ص' : 'All days: 9 AM - 1 AM',
     },
   ];
 
@@ -119,19 +119,38 @@ export default function Contact() {
               })}
             </StaggerContainer>
 
-            {/* Map */}
-            <FadeUp delay={0.4} className="rounded-2xl overflow-hidden aspect-[4/3] mt-4">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3335.0!2d44.3668789!3d33.3062672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDE4JzIyLjYiTiA0NMKwMjInMDAuOCJF!5e0!3m2!1sen!2siq!4v1"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title={isAr ? 'موقع مدووركس' : 'MedWorx Location'}
-                className="w-full h-full"
-              />
+            {/* Map — click to open directions */}
+            <FadeUp delay={0.4} className="mt-4">
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=33.3062672,44.3668789"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={isAr ? 'احصل على الاتجاهات' : 'Get directions'}
+                className="relative block rounded-2xl overflow-hidden aspect-[4/3] group no-underline"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3335.0!2d44.3668789!3d33.3062672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDE4JzIyLjYiTiA0NMKwMjInMDAuOCJF!5e0!3m2!1sen!2siq!4v1"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, pointerEvents: 'none' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={isAr ? 'موقع مدووركس' : 'MedWorx Location'}
+                  className="w-full h-full"
+                />
+                <span
+                  className="absolute bottom-4 inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold shadow-lg transition-transform group-hover:scale-105"
+                  style={{
+                    backgroundColor: '#ffffff',
+                    color: '#0C2340',
+                    [isAr ? 'right' : 'left']: '1rem',
+                  } as React.CSSProperties}
+                >
+                  <Navigation className="w-4 h-4" style={{ color: '#9B1B5E' }} />
+                  {isAr ? 'احصل على الاتجاهات' : 'Get Directions'}
+                </span>
+              </a>
             </FadeUp>
           </div>
 

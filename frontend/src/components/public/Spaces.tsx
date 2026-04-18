@@ -17,6 +17,7 @@ type Space = {
   tagNoteAr?: string;
   ctaEn: string;
   ctaAr: string;
+  fullWidth?: boolean;
 };
 
 const spaces: Space[] = [
@@ -109,6 +110,7 @@ const spaces: Space[] = [
     tagNoteAr: 'السعة: حتى 20 شخص · إطلالة مميزة',
     ctaEn: 'Book the VIP Room',
     ctaAr: 'احجز غرفة الـ VIP',
+    fullWidth: true,
   },
 ];
 
@@ -140,10 +142,10 @@ export default function Spaces() {
         {/* Spaces Grid */}
         <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.08}>
           {spaces.map((space, i) => (
-            <StaggerItem key={i} className="h-full">
-              <div className="bg-white rounded-2xl overflow-hidden group h-full flex flex-col">
+            <StaggerItem key={i} className={`h-full ${space.fullWidth ? 'sm:col-span-2 lg:col-span-3' : ''}`}>
+              <div className={`bg-white rounded-2xl overflow-hidden group h-full flex ${space.fullWidth ? 'flex-col md:flex-row' : 'flex-col'}`}>
                 {/* Image */}
-                <div className="aspect-[4/3] overflow-hidden flex-shrink-0">
+                <div className={`overflow-hidden flex-shrink-0 ${space.fullWidth ? 'aspect-[4/3] md:aspect-auto md:w-1/2' : 'aspect-[4/3]'}`}>
                   <img
                     src={space.image}
                     alt={isAr ? space.titleAr : space.titleEn}
@@ -153,16 +155,25 @@ export default function Spaces() {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 flex flex-col flex-1">
-                  <h3 className="text-base font-semibold mb-2" style={{ color: '#1d1d1f' }}>
+                <div className={`p-6 flex flex-col flex-1 ${space.fullWidth ? 'md:p-10 lg:p-12 md:justify-center' : ''}`}>
+                  <h3
+                    className={`font-semibold mb-2 ${space.fullWidth ? 'text-xl md:text-2xl mb-3' : 'text-base'}`}
+                    style={{ color: '#1d1d1f' }}
+                  >
                     {isAr ? space.titleAr : space.titleEn}
                   </h3>
-                  <p className="text-sm leading-[1.5] mb-4" style={{ color: 'rgba(0,0,0,0.48)' }}>
+                  <p
+                    className={`leading-[1.5] mb-4 ${space.fullWidth ? 'text-[15px] md:text-base leading-[1.7] mb-6' : 'text-sm'}`}
+                    style={{ color: 'rgba(0,0,0,0.56)' }}
+                  >
                     {isAr ? space.descAr : space.descEn}
                   </p>
                   <div className="mt-auto flex flex-col gap-3 pt-3" style={{ borderTop: '1px solid #f5f5f7' }}>
                     <div className="flex flex-col">
-                      <span className="text-sm font-semibold whitespace-nowrap" style={{ color: '#9B1B5E' }}>
+                      <span
+                        className={`font-semibold whitespace-nowrap ${space.fullWidth ? 'text-base' : 'text-sm'}`}
+                        style={{ color: '#9B1B5E' }}
+                      >
                         {isAr ? space.tagAr : space.tagEn}
                       </span>
                       {space.tagNoteEn && (
@@ -174,7 +185,7 @@ export default function Spaces() {
                     <button
                       type="button"
                       onClick={() => setSelected(space)}
-                      className={`inline-flex items-center gap-1 text-sm font-medium transition-colors hover:opacity-80 ${isAr ? 'self-end' : 'self-start'}`}
+                      className={`inline-flex items-center gap-1 font-medium transition-colors hover:opacity-80 ${space.fullWidth ? 'text-[15px]' : 'text-sm'} ${isAr ? 'self-end' : 'self-start'}`}
                       style={{ color: '#9B1B5E', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
                     >
                       {isAr ? space.ctaAr : space.ctaEn}
