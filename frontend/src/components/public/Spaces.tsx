@@ -97,6 +97,19 @@ const spaces: Space[] = [
     ctaEn: 'Book the Room',
     ctaAr: 'احجز الغرفة',
   },
+  {
+    titleEn: 'VIP Room',
+    titleAr: 'غرفة كبار الشخصيات (VIP)',
+    descEn: 'A dedicated room for high-level executive meetings with elevated privacy for sensitive decisions, a distinctive view that enhances the meeting experience, and the latest equipment fit for important gatherings.',
+    descAr: 'غرفة مخصصة للاجتماعات التنفيذية رفيعة المستوى — مستوى عالٍ من الخصوصية لقرارات واجتماعات حساسة، إطلالة (View) مميزة تعزز تجربة الاجتماع، ومجهزة بأحدث الأجهزة والتقنيات المناسبة للأحداث والاجتماعات المهمة.',
+    image: 'https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=800&q=80',
+    tagEn: '50,000 IQD/hr',
+    tagAr: '50,000 د.ع/الساعة',
+    tagNoteEn: 'Capacity: up to 20 attendees · Premium view',
+    tagNoteAr: 'السعة: حتى 20 شخص · إطلالة مميزة',
+    ctaEn: 'Book the VIP Room',
+    ctaAr: 'احجز غرفة الـ VIP',
+  },
 ];
 
 export default function Spaces() {
