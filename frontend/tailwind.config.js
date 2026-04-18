@@ -46,7 +46,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        ar: ['-apple-system', 'SF Arabic', 'SF Pro Arabic', 'system-ui', 'Geeza Pro', 'Helvetica Neue', 'Arial Arabic', 'sans-serif'],
+        ar: ['El Messiri', 'Cairo', '-apple-system', 'SF Arabic', 'SF Pro Arabic', 'system-ui', 'Geeza Pro', 'Helvetica Neue', 'Arial Arabic', 'sans-serif'],
       },
       maxWidth: {
         '8xl': '1440px',

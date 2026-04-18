@@ -25,7 +25,9 @@ export function LangProvider({ children }: { children: React.ReactNode }) {
     setLocaleState(newLocale);
     document.documentElement.lang = newLocale;
     document.documentElement.dir = newLocale === 'ar' ? 'rtl' : 'ltr';
-    document.body.style.fontFamily = "'Cairo', -apple-system, system-ui, sans-serif";
+    document.body.style.fontFamily = newLocale === 'ar'
+      ? "'El Messiri', 'Cairo', -apple-system, system-ui, sans-serif"
+      : "'Cairo', -apple-system, system-ui, sans-serif";
   }, []);
 
   const t = useCallback((key: string) => translate(key, locale), [locale]);

@@ -94,7 +94,7 @@ export default function BlogDetailPage() {
           <div
             className="prose prose-lg max-w-none text-neutral-700 leading-relaxed prose-headings:text-primary-900 prose-headings:font-bold prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl"
             dir={locale === 'ar' ? 'rtl' : 'ltr'}
-            style={{ fontFamily: locale === 'ar' ? "'Cairo', sans-serif" : "'Inter', sans-serif" }}
+            style={{ fontFamily: locale === 'ar' ? "'El Messiri', 'Cairo', sans-serif" : "'Inter', sans-serif" }}
             dangerouslySetInnerHTML={{
               __html: (locale === 'ar' ? blog.contentAr : blog.contentEn).replace(/\n/g, '<br/>')
             }}

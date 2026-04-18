@@ -13,47 +13,46 @@ export default function BookingPage() {
   const [rooms, setRooms] = useState<MeetingRoom[]>([]);
   const [selectedRoom, setSelectedRoom] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch('/api/rooms').then(r => r.json()).then(setRooms).catch(console.error);
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    setError('');
     const fd = new FormData(e.currentTarget);
-    const body = {
-      roomId: fd.get('roomId'),
-      customerName: fd.get('customerName'),
-      customerEmail: fd.get('customerEmail'),
-      customerPhone: fd.get('customerPhone'),
-      company: fd.get('company'),
-      date: fd.get('date'),
-      startTime: fd.get('startTime'),
-      endTime: fd.get('endTime'),
-      purpose: fd.get('purpose'),
-    };
+    const room = rooms.find((r) => r._id === fd.get('roomId'));
+    const roomName = room ? (locale === 'ar' ? room.nameAr : room.nameEn) : '';
 
-    try {
-      const res = await fetch('/api/bookings', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      if (!res.ok) {
-        const data = await res.json();
-        setError(data.error || 'Booking failed');
-      } else {
-        setSubmitted(true);
-      }
-    } catch {
-      setError('Something went wrong');
-    } finally {
-      setLoading(false);
-    }
+    const lines = locale === 'ar'
+      ? [
+          'طلب حجز قاعة جديد',
+          '',
+          `القاعة: ${roomName}`,
+          `الاسم: ${fd.get('customerName')}`,
+          `البريد: ${fd.get('customerEmail')}`,
+          `الهاتف: ${fd.get('customerPhone')}`,
+          `الشركة: ${fd.get('company') || '-'}`,
+          `التاريخ: ${fd.get('date')}`,
+          `الوقت: ${fd.get('startTime')} - ${fd.get('endTime')}`,
+          `الغرض: ${fd.get('purpose') || '-'}`,
+        ]
+      : [
+          'New room booking request',
+          '',
+          `Room: ${roomName}`,
+          `Name: ${fd.get('customerName')}`,
+          `Email: ${fd.get('customerEmail')}`,
+          `Phone: ${fd.get('customerPhone')}`,
+          `Company: ${fd.get('company') || '-'}`,
+          `Date: ${fd.get('date')}`,
+          `Time: ${fd.get('startTime')} - ${fd.get('endTime')}`,
+          `Purpose: ${fd.get('purpose') || '-'}`,
+        ];
+
+    const text = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/9647760206080?text=${text}`, '_blank');
+    setSubmitted(true);
   };
 
   const inputClass =
@@ -99,12 +98,6 @@ export default function BookingPage() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 lg:p-10 shadow-sm">
-              {error && (
-                <div className="mb-6 p-4 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
-                  {error}
-                </div>
-              )}
-
               {/* Room Selection */}
               <div className="mb-8">
                 <label className="block text-sm font-medium text-primary-900 mb-3">
@@ -252,20 +245,9 @@ export default function BookingPage() {
               {/* Submit */}
               <button
                 type="submit"
-                disabled={loading}
-                className="w-full py-3.5 bg-primary-900 text-white rounded-lg font-semibold text-sm hover:bg-primary-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-3.5 bg-primary-900 text-white rounded-lg font-semibold text-sm hover:bg-primary-light transition-colors"
               >
-                {loading ? (
-                  <span className="inline-flex items-center gap-2">
-                    <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-25" />
-                      <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="opacity-75" />
-                    </svg>
-                    {locale === 'ar' ? 'جاري الإرسال...' : 'Submitting...'}
-                  </span>
-                ) : (
-                  t('booking.submit')
-                )}
+                {t('booking.submit')}
               </button>
             </form>
           )}

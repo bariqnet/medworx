@@ -116,9 +116,9 @@ export default function Hero() {
           <div className="bg-white rounded-t-2xl shadow-2xl shadow-black/10 px-6 sm:px-10 py-7 grid grid-cols-3"
             dir={isAr ? 'rtl' : 'ltr'}>
             {[
-              { value: '25K+', label: t('hero.community') },
-              { value: '450+', label: t('hero.partners') },
-              { value: '1000+', label: t('hero.courses') },
+              { value: '250,000+', label: t('hero.community') },
+              { value: '100+', label: t('hero.partners') },
+              { value: '150+', label: t('hero.courses') },
             ].map((stat, i) => (
               <div
                 key={i}

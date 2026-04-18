@@ -24,16 +24,16 @@ export const translations = {
   },
   'hero.explore': { en: 'Explore Solutions', ar: 'استكشف الحلول' },
   'hero.getInTouch': { en: 'Book a Tour', ar: 'احجز جولة' },
-  'hero.community': { en: 'Community Members', ar: 'أعضاء المجتمع' },
-  'hero.partners': { en: 'Medical Partners', ar: 'شركاء طبيون' },
-  'hero.courses': { en: 'Courses Delivered', ar: 'دورة تدريبية' },
+  'hero.community': { en: 'Visitors per year', ar: 'زائر سنوياً' },
+  'hero.partners': { en: 'Medical conferences & events per year', ar: 'مؤتمر وفعالية طبية سنوياً' },
+  'hero.courses': { en: 'Partners & companies', ar: 'شريك وشركة' },
 
   // About
   'about.label': { en: 'About MedWorx', ar: 'عن مـدووركـس' },
-  'about.title': { en: 'The leading platform for medical work in Iraq', ar: 'المنصة الرائدة للعمل الطبي في العراق' },
+  'about.title': { en: 'The leading platform for medical works in Iraq', ar: 'المنصة الرائدة للعمل الطبي في العراق' },
   'about.description': {
-    en: "MedWorx is the complete ecosystem for the medical field — a specialized and integrated environment where healthcare professionals find everything they need to grow under one roof. From high-quality workspaces and training to event planning and creative solutions, we bring together tools, spaces, partnerships, and a thriving community. Founded on collaboration over competition, we nurture talent, empower individuals, and connect them with real growth opportunities within a healthy, motivating medical ecosystem.",
-    ar: 'مدووركس هي المنظومة المتكاملة للقطاع الطبي — بيئة متخصصة يجد فيها المتخصصون في القطاع الصحي كل ما يحتاجونه للنمو تحت سقف واحد. من مساحات العمل عالية الجودة والتدريب إلى تنظيم الفعاليات والحلول الإبداعية، نجمع بين الأدوات والمساحات والشراكات ومجتمع طبي مزدهر. نقوم على مبدأ التعاون بدلاً من التنافس، نحتضن الكفاءات ونمكّنها ونربطها بفرص نمو حقيقية ضمن منظومة طبية صحية ومحفّزة.'
+    en: "MedWorx is the complete ecosystem for the medical field — a specialized and integrated environment where healthcare professionals find everything they need to grow under one roof. Spanning 2,000 m² in Al Harthya, Baghdad, our facility brings together high-quality workspaces, training, event planning, and creative solutions, uniting tools, spaces, partnerships, and a thriving community. Founded on collaboration over competition, we nurture talent, empower individuals, and connect them with real growth opportunities within a healthy, motivating medical ecosystem.",
+    ar: 'مدووركس هي المنظومة المتكاملة للقطاع الطبي — بيئة متخصصة يجد فيها المتخصصون في القطاع الصحي كل ما يحتاجونه للنمو تحت سقف واحد. تمتد منشأتنا على مساحة 2,000 متر مربع في الحارثية ببغداد، وتجمع بين مساحات العمل عالية الجودة والتدريب وتنظيم الفعاليات والحلول الإبداعية، موحّدةً الأدوات والمساحات والشراكات ومجتمعاً طبياً مزدهراً. نقوم على مبدأ التعاون بدلاً من التنافس، نحتضن الكفاءات ونمكّنها ونربطها بفرص نمو حقيقية ضمن منظومة طبية صحية ومحفّزة.'
   },
   'about.location': { en: 'Prime Location', ar: 'موقع متميز' },
   'about.locationDesc': { en: 'Al Harthya-Kindi St., Baghdad', ar: 'بغداد الحارثية شارع الكندي' },

@@ -70,18 +70,20 @@ export default function WhyUs() {
             const Icon = p.icon;
             return (
               <StaggerItem key={i}>
-                <div className="rounded-2xl p-8 text-center"
+                <div className="rounded-2xl p-6 md:p-8 flex items-start gap-5 md:block md:text-center"
                   style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-5"
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 md:mx-auto md:mb-5"
                     style={{ backgroundColor: 'rgba(155,27,94,0.2)' }}>
                     <Icon className="w-5 h-5" style={{ color: '#B82D73' }} />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    {isAr ? p.titleAr : p.titleEn}
-                  </h3>
-                  <p className="text-sm leading-[1.6]" style={{ color: 'rgba(255,255,255,0.48)' }}>
-                    {isAr ? p.descAr : p.descEn}
-                  </p>
+                  <div className={`min-w-0 flex-1 md:flex-none ${isAr ? 'text-right md:text-center' : 'text-left md:text-center'}`}>
+                    <h3 className="text-lg font-bold text-white mb-2">
+                      {isAr ? p.titleAr : p.titleEn}
+                    </h3>
+                    <p className="text-sm leading-[1.6]" style={{ color: 'rgba(255,255,255,0.48)' }}>
+                      {isAr ? p.descAr : p.descEn}
+                    </p>
+                  </div>
                 </div>
               </StaggerItem>
             );

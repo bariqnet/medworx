@@ -1,7 +1,7 @@
 'use client';
 
 import { useLang } from '@/components/providers/LangProvider';
-import { Building2, GraduationCap, Lightbulb, FolderKanban } from 'lucide-react';
+import { Building2, GraduationCap, Lightbulb, FolderKanban, Presentation, Coffee } from 'lucide-react';
 import { FadeUp, SlideIn, ScaleUp } from '@/components/motion';
 
 const services = [
@@ -36,6 +36,22 @@ const services = [
     descEn: 'MedWorx adopts a structured and results-driven project management approach to ensure the successful delivery of all initiatives. By integrating strategic planning, cost optimization, timeline control, and performance tracking, MedWorx guarantees efficient execution with measurable outcomes. This methodology transforms projects into value-driven investments, minimizing risks while maximizing operational and financial impact.',
     descAr: 'تعتمد مدووركس منهجية احترافية قائمة على إدارة المشاريع بشكل منظم وموجه نحو النتائج، لضمان تنفيذ جميع المبادرات بأعلى كفاءة. من خلال الدمج بين التخطيط الاستراتيجي، وتحسين التكاليف، وإدارة الوقت، وقياس الأداء، تضمن مدووركس تحقيق نتائج واضحة وقابلة للقياس، وتحويل المشاريع إلى استثمارات ذات قيمة عالية مع تقليل المخاطر وتعظيم الأثر التشغيلي والمالي.',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    icon: Presentation,
+    titleEn: 'Rooms & Halls for Events, Meetings & Training',
+    titleAr: 'قاعات وغرف للفعاليات والاجتماعات والتدريب',
+    descEn: 'MedWorx offers a complete collection of 8 fully equipped rooms and halls designed for medical events, professional meetings, and training programs, with capacities ranging from 10 to 100 attendees. Each space is built with modern audio-visual technology, flexible seating layouts, and a refined business atmosphere to support workshops, seminars, conferences, and corporate gatherings of any scale — all within a dedicated medical environment in the heart of Baghdad.',
+    descAr: 'توفر مدووركس مجموعة متكاملة بعدد ٨ قاعات وغرف مجهزة بالكامل ومصممة لاستضافة الفعاليات الطبية والاجتماعات المهنية والبرامج التدريبية، تستوعب من ١٠ إلى ١٠٠ شخص. كل مساحة مزوّدة بأحدث التقنيات السمعية والبصرية، وتنسيقات جلوس مرنة، وأجواء مهنية راقية تدعم ورش العمل والندوات والمؤتمرات والاجتماعات بمختلف أحجامها، ضمن بيئة طبية متخصصة في قلب بغداد.',
+    image: '/h1.jpeg',
+  },
+  {
+    icon: Coffee,
+    titleEn: 'Med Cafe — Cafe & Restaurant for the Medical Community',
+    titleAr: 'مد كافيه — مقهى ومطعم للمجتمع الطبي',
+    descEn: 'Med Cafe is a dedicated cafe and restaurant created exclusively for the medical community — a calm, inspiring space where doctors, students, and healthcare professionals can study, work, and connect over thoughtfully prepared meals and specialty coffee. With reliable Wi-Fi, comfortable seating, and a quiet, focused atmosphere, Med Cafe blends productivity with hospitality, offering the perfect setting for individual study sessions, peer discussions, or informal professional meetings.',
+    descAr: 'مد كافيه هو مقهى ومطعم مخصص حصراً للمجتمع الطبي — مساحة هادئة وملهمة تستطيع فيها المجموعة الطبية الدراسة والعمل والتواصل أثناء الاستمتاع بوجبات مُعدّة بعناية وقهوة مختصة. ومع توفر شبكة إنترنت موثوقة وجلسات مريحة وأجواء هادئة تدعم التركيز، يجمع مد كافيه بين الإنتاجية والضيافة، ليكون المكان المثالي لجلسات الدراسة الفردية، والنقاشات بين الزملاء، والاجتماعات المهنية غير الرسمية.',
+    image: '/b1.jpg',
   },
 ];
 

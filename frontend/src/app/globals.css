@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;600;700&family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
 
-/* ===== Typography — Cairo for both EN and AR ===== */
+/* ===== Typography — El Messiri (primary) & Cairo (secondary) for AR ===== */
 
 :root {
   --primary: #0C2340;
@@ -15,8 +15,8 @@
   /* Apple-inspired type scale */
   --font-display: 'Cairo', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', system-ui, sans-serif;
   --font-text: 'Cairo', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', system-ui, sans-serif;
-  --font-ar-display: 'Cairo', -apple-system, 'Geeza Pro', system-ui, sans-serif;
-  --font-ar-text: 'Cairo', -apple-system, 'Geeza Pro', system-ui, sans-serif;
+  --font-ar-display: 'El Messiri', 'Cairo', -apple-system, 'Geeza Pro', system-ui, sans-serif;
+  --font-ar-text: 'El Messiri', 'Cairo', -apple-system, 'Geeza Pro', system-ui, sans-serif;
 }
 
 html {

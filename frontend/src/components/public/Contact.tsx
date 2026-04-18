@@ -8,26 +8,34 @@ import { FadeUp, SlideIn, StaggerContainer, StaggerItem } from '@/components/mot
 export default function Contact() {
   const { locale, t } = useLang();
   const isAr = locale === 'ar';
-  const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-    const formData = new FormData(e.currentTarget);
-    try {
-      await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(Object.fromEntries(formData)),
-      });
-      setSuccess(true);
-      (e.target as HTMLFormElement).reset();
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
+    const fd = new FormData(e.currentTarget);
+    const lines = isAr
+      ? [
+          'طلب تواصل جديد من الموقع',
+          '',
+          `الاسم: ${fd.get('name')}`,
+          `الهاتف: ${fd.get('phone')}`,
+          `البريد: ${fd.get('email')}`,
+          `الخدمة: ${fd.get('service')}`,
+          `الرسالة: ${fd.get('message')}`,
+        ]
+      : [
+          'New contact request from website',
+          '',
+          `Name: ${fd.get('name')}`,
+          `Phone: ${fd.get('phone')}`,
+          `Email: ${fd.get('email')}`,
+          `Service: ${fd.get('service')}`,
+          `Message: ${fd.get('message')}`,
+        ];
+    const text = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/9647760206080?text=${text}`, '_blank');
+    setSuccess(true);
+    (e.target as HTMLFormElement).reset();
   };
 
   const contactInfo = [
@@ -174,21 +182,10 @@ export default function Contact() {
                   </div>
                   <button
                     type="submit"
-                    disabled={loading}
-                    className="w-full py-3.5 text-white rounded-xl font-medium text-sm transition-opacity hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-3.5 text-white rounded-xl font-medium text-sm transition-opacity hover:opacity-90"
                     style={{ backgroundColor: '#9B1B5E' }}
                   >
-                    {loading ? (
-                      <span className="inline-flex items-center gap-2">
-                        <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" className="opacity-25" />
-                          <path d="M4 12a8 8 0 018-8" stroke="currentColor" strokeWidth="3" strokeLinecap="round" className="opacity-75" />
-                        </svg>
-                        {isAr ? 'جاري الإرسال...' : 'Sending...'}
-                      </span>
-                    ) : (
-                      t('contact.send')
-                    )}
+                    {t('contact.send')}
                   </button>
                 </form>
               )}
