@@ -23,7 +23,7 @@ type Space = {
 const spaces: Space[] = [
   {
     titleEn: 'Private Office',
-    titleAr: 'مكتب خاص',
+    titleAr: 'مكتب اداري',
     descEn: 'Your own lockable office with dynamic furniture that reconfigures to fit your workflow.',
     descAr: 'مكتبك الخاص المؤمن مع أثاث ديناميكي قابل لإعادة التشكيل حسب طبيعة عملك.',
     image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80',
@@ -249,6 +249,7 @@ function BookingModal({
           `السعر المعلن: ${price}`,
           '',
           `الاسم: ${fd.get('name')}`,
+          `الشركة: ${fd.get('company') || '-'}`,
           `الهاتف: ${fd.get('phone')}`,
           `البريد: ${fd.get('email') || '-'}`,
           `التاريخ: ${fd.get('date')}`,
@@ -263,6 +264,7 @@ function BookingModal({
           `Listed price: ${price}`,
           '',
           `Name: ${fd.get('name')}`,
+          `Company: ${fd.get('company') || '-'}`,
           `Phone: ${fd.get('phone')}`,
           `Email: ${fd.get('email') || '-'}`,
           `Date: ${fd.get('date')}`,
@@ -332,11 +334,19 @@ function BookingModal({
             </div>
           </div>
 
-          <div>
-            <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
-              {isAr ? 'البريد الإلكتروني (اختياري)' : 'Email (optional)'}
-            </label>
-            <input name="email" type="email" className={inputClass} dir="ltr" />
+          <div className="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
+                {isAr ? 'اسم الشركة (اختياري)' : 'Company (optional)'}
+              </label>
+              <input name="company" className={inputClass} />
+            </div>
+            <div>
+              <label className="block text-xs font-semibold mb-1.5" style={{ color: '#404040' }}>
+                {isAr ? 'البريد الإلكتروني (اختياري)' : 'Email (optional)'}
+              </label>
+              <input name="email" type="email" className={inputClass} dir="ltr" />
+            </div>
           </div>
 
           <div className="grid grid-cols-3 gap-3">

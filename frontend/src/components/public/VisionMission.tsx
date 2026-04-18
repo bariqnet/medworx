@@ -52,12 +52,12 @@ export default function VisionMission() {
 
               <div className={`relative p-8 lg:p-10 xl:p-12 ${isAr ? 'text-right' : 'text-left'}`}>
                 {/* Top row: icon + label */}
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                <div className="flex items-center gap-3.5 mb-8">
+                  <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: 'linear-gradient(135deg, #9B1B5E 0%, #B82D73 100%)' }}>
-                    <Eye className="w-5 h-5 text-white" />
+                    <Eye className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
                   </div>
-                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-accent-light">
+                  <span className="text-lg sm:text-xl lg:text-2xl font-bold tracking-wide uppercase text-accent-light">
                     {t('vision.label')}
                   </span>
                 </div>
@@ -98,11 +98,11 @@ export default function VisionMission() {
 
               <div className={`relative p-8 lg:p-10 xl:p-12 flex flex-col h-full ${isAr ? 'text-right' : 'text-left'}`}>
                 {/* Top row: icon + label */}
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center backdrop-blur-sm">
-                    <Target className="w-5 h-5 text-white" />
+                <div className="flex items-center gap-3.5 mb-8">
+                  <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl bg-white/15 flex items-center justify-center backdrop-blur-sm">
+                    <Target className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
                   </div>
-                  <span className="text-xs font-bold tracking-[0.2em] uppercase text-white/70">
+                  <span className="text-lg sm:text-xl lg:text-2xl font-bold tracking-wide uppercase text-white/85">
                     {t('mission.label')}
                   </span>
                 </div>
