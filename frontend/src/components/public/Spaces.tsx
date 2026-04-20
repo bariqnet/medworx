@@ -5,6 +5,13 @@ import { useLang } from '@/components/providers/LangProvider';
 import { ArrowRight, ArrowLeft, X } from 'lucide-react';
 import { FadeUp, StaggerContainer, StaggerItem } from '@/components/motion';
 
+type PriceTier = {
+  labelEn: string;
+  labelAr: string;
+  priceEn: string;
+  priceAr: string;
+};
+
 type Space = {
   titleEn: string;
   titleAr: string;
@@ -18,6 +25,7 @@ type Space = {
   ctaEn: string;
   ctaAr: string;
   fullWidth?: boolean;
+  priceTiers?: PriceTier[];
 };
 
 const spaces: Space[] = [
@@ -26,7 +34,7 @@ const spaces: Space[] = [
     titleAr: 'مكتب اداري',
     descEn: 'Your own lockable office with dynamic furniture that reconfigures to fit your workflow.',
     descAr: 'مكتبك الخاص المؤمن مع أثاث ديناميكي قابل لإعادة التشكيل حسب طبيعة عملك.',
-    image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80',
+    image: '/office1.jpeg',
     tagEn: '800,000 – 2,000,000 IQD/mo',
     tagAr: 'من 800,000 إلى 2,000,000 د.ع/شهر',
     tagNoteEn: 'Varies by office size',
@@ -41,12 +49,16 @@ const spaces: Space[] = [
     descEn: 'Professional environment fully equipped for medical conferences and events — stage, podium, projector, sound system, and 2 smart screens.',
     descAr: 'بيئة احترافية مجهزة بالكامل للمؤتمرات والفعاليات الطبية — ستيج، بوديوم، داتا شو، نظام صوت، وشاشتان ذكيتان.',
     image: '/m1.png',
-    tagEn: '1,000,000 IQD/day',
-    tagAr: '1,000,000 د.ع/اليوم',
+    tagEn: 'From 250,000 IQD/day',
+    tagAr: 'من 250,000 د.ع/اليوم',
     tagNoteEn: 'Capacity: 120 attendees',
     tagNoteAr: 'السعة: 120 شخص',
     ctaEn: 'Book the Hall',
     ctaAr: 'احجز القاعة',
+    priceTiers: [
+      { labelEn: 'Friday & Saturday', labelAr: 'الجمعة والسبت', priceEn: '500,000 IQD/day', priceAr: '500,000 د.ع/اليوم' },
+      { labelEn: 'Other days', labelAr: 'أيام أخرى', priceEn: '250,000 IQD/day', priceAr: '250,000 د.ع/اليوم' },
+    ],
   },
   {
     titleEn: 'Training Halls (ق1 / ق2)',
@@ -54,25 +66,50 @@ const spaces: Space[] = [
     descEn: 'Two professional halls ideal for training and meetings. Each features a stage, professional smart screen, and flip chart.',
     descAr: 'قاعتان احترافيتان مثاليتان للتدريب والاجتماعات. تحتوي كل قاعة على ستيج (منصة تقديم)، شاشة ذكية احترافية، وفليب تشارت.',
     image: '/o2.jpeg',
-    tagEn: '45,000 IQD/hr',
-    tagAr: '45,000 د.ع/الساعة',
+    tagEn: 'From 25,000 IQD/hr',
+    tagAr: 'من 25,000 د.ع/الساعة',
     tagNoteEn: 'Capacity: 40 per hall · 2 halls available',
     tagNoteAr: 'السعة: 40 شخص لكل قاعة · قاعتان متاحتان',
     ctaEn: 'Book a Hall',
     ctaAr: 'احجز قاعة',
+    priceTiers: [
+      { labelEn: 'Friday & Saturday', labelAr: 'الجمعة والسبت', priceEn: '30,000 IQD/hr', priceAr: '30,000 د.ع/الساعة' },
+      { labelEn: 'Other days', labelAr: 'أيام أخرى', priceEn: '25,000 IQD/hr', priceAr: '25,000 د.ع/الساعة' },
+    ],
   },
   {
-    titleEn: 'Small Meeting Rooms (ق3 / ق4)',
-    titleAr: 'غرف الاجتماعات الصغيرة (ق3 / ق4)',
-    descEn: 'Quiet rooms suited for small meetings and private sessions. A focused environment that supports productivity, equipped with a smart screen.',
-    descAr: 'غرف هادئة مناسبة للاجتماعات الصغيرة والجلسات الخاصة. بيئة هادئة تضمن التركيز والإنتاجية، ومزوّدة بشاشة ذكية.',
+    titleEn: 'Meeting Room ق3',
+    titleAr: 'غرفة اجتماعات ق3',
+    descEn: 'Quiet room suited for small meetings and private sessions. A focused environment that supports productivity, equipped with a smart screen.',
+    descAr: 'غرفة هادئة مناسبة للاجتماعات الصغيرة والجلسات الخاصة. بيئة هادئة تضمن التركيز والإنتاجية، ومزوّدة بشاشة ذكية.',
     image: '/o4.jpg',
-    tagEn: '25,000 IQD/hr',
-    tagAr: '25,000 د.ع/الساعة',
-    tagNoteEn: 'Capacity: 15 – 20 attendees · 2 rooms available',
-    tagNoteAr: 'السعة: 15 – 20 شخص · غرفتان متاحتان',
-    ctaEn: 'Book a Room',
-    ctaAr: 'احجز غرفة',
+    tagEn: 'From 20,000 IQD/hr',
+    tagAr: 'من 20,000 د.ع/الساعة',
+    tagNoteEn: 'Capacity: 15 – 20 attendees',
+    tagNoteAr: 'السعة: 15 – 20 شخص',
+    ctaEn: 'Book the Room',
+    ctaAr: 'احجز الغرفة',
+    priceTiers: [
+      { labelEn: 'Friday & Saturday', labelAr: 'الجمعة والسبت', priceEn: '25,000 IQD/hr', priceAr: '25,000 د.ع/الساعة' },
+      { labelEn: 'Other days', labelAr: 'أيام أخرى', priceEn: '20,000 IQD/hr', priceAr: '20,000 د.ع/الساعة' },
+    ],
+  },
+  {
+    titleEn: 'Meeting Room ق4',
+    titleAr: 'غرفة اجتماعات ق4',
+    descEn: 'Quiet room for small meetings and private sessions — a focused environment that supports productivity, equipped with a smart screen.',
+    descAr: 'غرفة هادئة للاجتماعات الصغيرة والجلسات الخاصة — بيئة تضمن التركيز والإنتاجية، ومزوّدة بشاشة ذكية.',
+    image: '/o4.jpg',
+    tagEn: 'From 15,000 IQD/hr',
+    tagAr: 'من 15,000 د.ع/الساعة',
+    tagNoteEn: 'Capacity: 15 – 20 attendees',
+    tagNoteAr: 'السعة: 15 – 20 شخص',
+    ctaEn: 'Book the Room',
+    ctaAr: 'احجز الغرفة',
+    priceTiers: [
+      { labelEn: 'Friday & Saturday', labelAr: 'الجمعة والسبت', priceEn: '20,000 IQD/hr', priceAr: '20,000 د.ع/الساعة' },
+      { labelEn: 'Other days', labelAr: 'أيام أخرى', priceEn: '15,000 IQD/hr', priceAr: '15,000 د.ع/الساعة' },
+    ],
   },
   {
     titleEn: 'Podcast Room',
@@ -80,12 +117,16 @@ const spaces: Space[] = [
     descEn: 'A high-privacy room dedicated to professional recording and private meetings — built to capture content at studio quality.',
     descAr: 'غرفة بخصوصية عالية مخصصة للتصوير الاحترافي أو الاجتماعات الخاصة — بيئة مناسبة لتسجيل محتوى بجودة احترافية.',
     image: '/pos1.jpeg',
-    tagEn: '30,000 IQD/hr',
-    tagAr: '30,000 د.ع/الساعة',
+    tagEn: 'From 20,000 IQD/hr',
+    tagAr: 'من 20,000 د.ع/الساعة',
     tagNoteEn: 'Capacity: 5 attendees',
     tagNoteAr: 'السعة: 5 أشخاص',
     ctaEn: 'Book the Room',
     ctaAr: 'احجز الغرفة',
+    priceTiers: [
+      { labelEn: 'Friday & Saturday', labelAr: 'الجمعة والسبت', priceEn: '25,000 IQD/hr', priceAr: '25,000 د.ع/الساعة' },
+      { labelEn: 'Other days', labelAr: 'أيام أخرى', priceEn: '20,000 IQD/hr', priceAr: '20,000 د.ع/الساعة' },
+    ],
   },
   {
     titleEn: 'Interview Room',
@@ -93,10 +134,14 @@ const spaces: Space[] = [
     descEn: 'A dedicated room for interviews and structured meetings — professional environment with a smart screen and reception system to coordinate appointments.',
     descAr: 'غرفة مخصصة للمقابلات والاجتماعات المنظمة — بيئة احترافية تضمن الخصوصية والتنظيم، مع شاشة ذكية ونظام رسبشن لتنظيم مواعيد المقابلات.',
     image: '/int.jpeg',
-    tagEn: '30,000 IQD/hr',
-    tagAr: '30,000 د.ع/الساعة',
+    tagEn: 'From 20,000 IQD/hr',
+    tagAr: 'من 20,000 د.ع/الساعة',
     ctaEn: 'Book the Room',
     ctaAr: 'احجز الغرفة',
+    priceTiers: [
+      { labelEn: 'Friday & Saturday', labelAr: 'الجمعة والسبت', priceEn: '25,000 IQD/hr', priceAr: '25,000 د.ع/الساعة' },
+      { labelEn: 'Other days', labelAr: 'أيام أخرى', priceEn: '20,000 IQD/hr', priceAr: '20,000 د.ع/الساعة' },
+    ],
   },
   {
     titleEn: 'VIP Room',
@@ -104,13 +149,17 @@ const spaces: Space[] = [
     descEn: 'A dedicated room for high-level executive meetings with elevated privacy for sensitive decisions, a distinctive view that enhances the meeting experience, and the latest equipment fit for important gatherings.',
     descAr: 'غرفة مخصصة للاجتماعات التنفيذية رفيعة المستوى — مستوى عالٍ من الخصوصية لقرارات واجتماعات حساسة، إطلالة (View) مميزة تعزز تجربة الاجتماع، ومجهزة بأحدث الأجهزة والتقنيات المناسبة للأحداث والاجتماعات المهمة.',
     image: '/o1.png',
-    tagEn: '50,000 IQD/hr',
-    tagAr: '50,000 د.ع/الساعة',
+    tagEn: 'From 25,000 IQD/hr',
+    tagAr: 'من 25,000 د.ع/الساعة',
     tagNoteEn: 'Capacity: up to 20 attendees · Premium view',
     tagNoteAr: 'السعة: حتى 20 شخص · إطلالة مميزة',
     ctaEn: 'Book the VIP Room',
     ctaAr: 'احجز غرفة الـ VIP',
     fullWidth: true,
+    priceTiers: [
+      { labelEn: 'Friday & Saturday', labelAr: 'الجمعة والسبت', priceEn: '30,000 IQD/hr', priceAr: '30,000 د.ع/الساعة' },
+      { labelEn: 'Other days', labelAr: 'أيام أخرى', priceEn: '25,000 IQD/hr', priceAr: '25,000 د.ع/الساعة' },
+    ],
   },
 ];
 
@@ -239,14 +288,20 @@ function BookingModal({
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const spaceName = isAr ? space.titleAr : space.titleEn;
-    const price = isAr ? space.tagAr : space.tagEn;
+    const priceSummary = space.priceTiers
+      ? space.priceTiers
+          .map((t) => (isAr ? `${t.labelAr}: ${t.priceAr}` : `${t.labelEn}: ${t.priceEn}`))
+          .join(' · ')
+      : isAr
+      ? space.tagAr
+      : space.tagEn;
 
     const lines = isAr
       ? [
           'طلب حجز جديد',
           '',
           `المساحة: ${spaceName}`,
-          `السعر المعلن: ${price}`,
+          `السعر المعلن: ${priceSummary}`,
           '',
           `الاسم: ${fd.get('name')}`,
           `الشركة: ${fd.get('company') || '-'}`,
@@ -261,7 +316,7 @@ function BookingModal({
           'New booking request',
           '',
           `Space: ${spaceName}`,
-          `Listed price: ${price}`,
+          `Listed price: ${priceSummary}`,
           '',
           `Name: ${fd.get('name')}`,
           `Company: ${fd.get('company') || '-'}`,
@@ -302,9 +357,6 @@ function BookingModal({
             <h3 className="text-lg font-bold truncate" style={{ color: '#1d1d1f' }}>
               {isAr ? space.titleAr : space.titleEn}
             </h3>
-            <p className="text-sm mt-0.5" style={{ color: '#9B1B5E' }}>
-              {isAr ? space.tagAr : space.tagEn}
-            </p>
           </div>
           <button
             type="button"
@@ -315,6 +367,36 @@ function BookingModal({
           >
             <X className="w-5 h-5" />
           </button>
+        </div>
+
+        {/* Pricing */}
+        <div className="px-6 pt-4">
+          <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#737373' }}>
+            {isAr ? 'الأسعار' : 'Pricing'}
+          </p>
+          {space.priceTiers ? (
+            <div className="rounded-lg overflow-hidden" style={{ border: '1px solid #f5f5f7' }}>
+              {space.priceTiers.map((tier, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between px-3.5 py-2.5 text-sm"
+                  style={{
+                    borderTop: i === 0 ? 'none' : '1px solid #f5f5f7',
+                    backgroundColor: i === 0 ? '#fafafa' : 'white',
+                  }}
+                >
+                  <span style={{ color: '#404040' }}>{isAr ? tier.labelAr : tier.labelEn}</span>
+                  <span className="font-semibold" style={{ color: '#9B1B5E' }}>
+                    {isAr ? tier.priceAr : tier.priceEn}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-sm font-semibold" style={{ color: '#9B1B5E' }}>
+              {isAr ? space.tagAr : space.tagEn}
+            </p>
+          )}
         </div>
 
         {/* Form */}
