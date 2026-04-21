@@ -10,7 +10,7 @@ export default function CTABanner() {
   const Arrow = isAr ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="relative min-h-[480px] lg:min-h-[520px] flex items-center" dir={isAr ? 'rtl' : 'ltr'}>
+    <section className="relative min-h-[420px] sm:min-h-[480px] lg:min-h-[520px] flex items-center" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Background Image */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 z-10"
@@ -22,19 +22,19 @@ export default function CTABanner() {
       </div>
 
       {/* Content */}
-      <FadeUp className="relative z-20 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 w-full py-20 lg:py-24 text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.2] tracking-tight mb-5">
+      <FadeUp className="relative z-20 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 w-full py-14 sm:py-20 lg:py-24 text-center">
+        <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-white leading-[1.2] tracking-tight mb-4 sm:mb-5">
           {t('cta.title')}
         </h2>
-        <p className="text-base leading-[1.6] max-w-xl mx-auto mb-10"
+        <p className="text-sm sm:text-base leading-[1.6] max-w-xl mx-auto mb-8 sm:mb-10"
           style={{ color: 'rgba(255,255,255,0.60)' }}>
           {t('cta.subtitle')}
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 text-white font-medium text-sm no-underline hover:opacity-90 transition-opacity"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-white font-medium text-sm no-underline hover:opacity-90 transition-opacity"
             style={{ backgroundColor: '#9B1B5E', borderRadius: '980px' }}
           >
             {t('cta.button')}
@@ -42,7 +42,7 @@ export default function CTABanner() {
           </a>
           <a
             href="tel:+9647760206080"
-            className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium no-underline transition-colors bg-white/10 backdrop-blur-sm rounded-full"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-sm font-medium no-underline transition-colors bg-white/10 backdrop-blur-sm rounded-full"
             style={{ color: 'rgba(255,255,255,0.85)' }}
           >
             <span dir="ltr" className="inline-flex items-center gap-2">

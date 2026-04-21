@@ -21,19 +21,19 @@ export default function BlogPage() {
       <Navbar />
 
       {/* Page Header */}
-      <section className="bg-primary-900 pt-32 pb-16">
+      <section className="bg-primary-900 pt-24 sm:pt-32 pb-12 sm:pb-16">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
-          <nav className="flex items-center gap-2 text-sm text-white/40 mb-6">
+          <nav className="flex items-center gap-2 text-xs sm:text-sm text-white/40 mb-4 sm:mb-6">
             <Link href="/" className="hover:text-white/70 transition-colors no-underline text-white/40">
               {t('nav.home')}
             </Link>
             <span>/</span>
             <span className="text-white/70">{t('nav.blog')}</span>
           </nav>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white">
+          <h1 className="text-2xl sm:text-4xl font-bold text-white">
             {locale === 'ar' ? 'أحدث المقالات والأخبار' : 'Latest Articles & Insights'}
           </h1>
-          <p className="text-white/60 mt-3 text-base max-w-xl">
+          <p className="text-white/60 mt-2 sm:mt-3 text-sm sm:text-base max-w-xl">
             {locale === 'ar'
               ? 'اكتشف أحدث الأخبار والمقالات حول الأعمال الطبية ومساحات العمل المشتركة.'
               : 'Discover the latest news and articles about medical business and coworking spaces.'}
@@ -42,9 +42,9 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-10 sm:py-16 bg-neutral-50">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {blogs.map((blog) => (
               <Link
                 key={blog._id}

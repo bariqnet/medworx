@@ -54,15 +54,15 @@ export default function BlogsPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-2xl font-bold">Blog Posts</h1>
-        <button onClick={() => { setEditing(null); resetForm(); setShowModal(true); }} className="flex items-center gap-2 px-5 py-2.5 rounded-full btn-gradient text-white text-sm font-semibold glow-magenta">
+      <div className="flex items-center justify-between gap-3 mb-6 sm:mb-8 flex-wrap">
+        <h1 className="text-xl sm:text-2xl font-bold">Blog Posts</h1>
+        <button onClick={() => { setEditing(null); resetForm(); setShowModal(true); }} className="flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full btn-gradient text-white text-sm font-semibold glow-magenta">
           <Plus className="w-4 h-4" /> New Post
         </button>
       </div>
 
       {/* Blog Cards Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {blogs.map((blog) => (
           <div key={blog._id} className="surface-card rounded-2xl overflow-hidden group">
             <div className="h-40 bg-gradient-to-br from-[#141043] to-[#3a1d8e] relative">
@@ -104,59 +104,59 @@ export default function BlogsPage() {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-          <div className="bg-[#141043] border border-white/[0.08] rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-8">
-            <h2 className="text-xl font-bold mb-6">{editing ? 'Edit Blog Post' : 'New Blog Post'}</h2>
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-0 sm:p-4">
+          <div className="bg-[#141043] border border-white/[0.08] sm:rounded-2xl w-full max-w-4xl h-full sm:h-auto sm:max-h-[90vh] overflow-y-auto p-5 sm:p-8">
+            <h2 className="text-lg sm:text-xl font-bold mb-5 sm:mb-6">{editing ? 'Edit Blog Post' : 'New Blog Post'}</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm text-[#b8b5d0] mb-2">Title (English)</label>
-                  <input value={form.titleEn} onChange={e => setForm({...form, titleEn: e.target.value})} required className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:border-[#c4197d] outline-none" />
+                  <input value={form.titleEn} onChange={e => setForm({...form, titleEn: e.target.value})} required className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-base focus:border-[#c4197d] outline-none" />
                 </div>
                 <div>
                   <label className="block text-sm text-[#b8b5d0] mb-2">Title (Arabic)</label>
-                  <input value={form.titleAr} onChange={e => setForm({...form, titleAr: e.target.value})} required dir="rtl" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:border-[#c4197d] outline-none font-ar" />
+                  <input value={form.titleAr} onChange={e => setForm({...form, titleAr: e.target.value})} required dir="rtl" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-base focus:border-[#c4197d] outline-none font-ar" />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm text-[#b8b5d0] mb-2">Excerpt (English)</label>
-                  <textarea value={form.excerptEn} onChange={e => setForm({...form, excerptEn: e.target.value})} rows={2} className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:border-[#c4197d] outline-none resize-y" />
+                  <textarea value={form.excerptEn} onChange={e => setForm({...form, excerptEn: e.target.value})} rows={2} className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-base focus:border-[#c4197d] outline-none resize-y" />
                 </div>
                 <div>
                   <label className="block text-sm text-[#b8b5d0] mb-2">Excerpt (Arabic)</label>
-                  <textarea value={form.excerptAr} onChange={e => setForm({...form, excerptAr: e.target.value})} rows={2} dir="rtl" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:border-[#c4197d] outline-none resize-y font-ar" />
+                  <textarea value={form.excerptAr} onChange={e => setForm({...form, excerptAr: e.target.value})} rows={2} dir="rtl" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-base focus:border-[#c4197d] outline-none resize-y font-ar" />
                 </div>
               </div>
               <div>
                 <label className="block text-sm text-[#b8b5d0] mb-2">Content (English)</label>
-                <textarea value={form.contentEn} onChange={e => setForm({...form, contentEn: e.target.value})} rows={6} className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:border-[#c4197d] outline-none resize-y" placeholder="Write your blog content in English..." />
+                <textarea value={form.contentEn} onChange={e => setForm({...form, contentEn: e.target.value})} rows={6} className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-base focus:border-[#c4197d] outline-none resize-y" placeholder="Write your blog content in English..." />
               </div>
               <div>
                 <label className="block text-sm text-[#b8b5d0] mb-2">Content (Arabic)</label>
-                <textarea value={form.contentAr} onChange={e => setForm({...form, contentAr: e.target.value})} rows={6} dir="rtl" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:border-[#c4197d] outline-none resize-y font-ar" placeholder="اكتب محتوى المدونة بالعربية..." />
+                <textarea value={form.contentAr} onChange={e => setForm({...form, contentAr: e.target.value})} rows={6} dir="rtl" className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-base focus:border-[#c4197d] outline-none resize-y font-ar" placeholder="اكتب محتوى المدونة بالعربية..." />
               </div>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
                   <label className="block text-sm text-[#b8b5d0] mb-2">Cover Image URL</label>
-                  <input value={form.coverImage} onChange={e => setForm({...form, coverImage: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:border-[#c4197d] outline-none" />
+                  <input value={form.coverImage} onChange={e => setForm({...form, coverImage: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-base focus:border-[#c4197d] outline-none" />
                 </div>
                 <div>
                   <label className="block text-sm text-[#b8b5d0] mb-2">Author</label>
-                  <input value={form.author} onChange={e => setForm({...form, author: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:border-[#c4197d] outline-none" />
+                  <input value={form.author} onChange={e => setForm({...form, author: e.target.value})} className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-base focus:border-[#c4197d] outline-none" />
                 </div>
                 <div>
                   <label className="block text-sm text-[#b8b5d0] mb-2">Tags (comma separated)</label>
-                  <input value={form.tags} onChange={e => setForm({...form, tags: e.target.value})} placeholder="medical, business, ..." className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:border-[#c4197d] outline-none" />
+                  <input value={form.tags} onChange={e => setForm({...form, tags: e.target.value})} placeholder="medical, business, ..." className="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-base focus:border-[#c4197d] outline-none" />
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <input type="checkbox" checked={form.isPublished} onChange={e => setForm({...form, isPublished: e.target.checked})} className="w-4 h-4 rounded accent-[#c4197d]" />
                 <label className="text-sm text-[#b8b5d0]">Publish immediately</label>
               </div>
-              <div className="flex gap-3 pt-4">
-                <button type="submit" className="flex-1 py-3 rounded-full btn-gradient text-white font-semibold">{editing ? 'Update' : 'Create'} Post</button>
+              <div className="flex flex-col-reverse sm:flex-row gap-3 pt-4">
                 <button type="button" onClick={() => setShowModal(false)} className="px-6 py-3 rounded-full border border-white/20 text-sm">Cancel</button>
+                <button type="submit" className="flex-1 py-3 rounded-full btn-gradient text-white font-semibold">{editing ? 'Update' : 'Create'} Post</button>
               </div>
             </form>
           </div>

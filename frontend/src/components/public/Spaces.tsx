@@ -170,26 +170,26 @@ export default function Spaces() {
   const [selected, setSelected] = useState<Space | null>(null);
 
   return (
-    <section className="py-24 lg:py-32 bg-[#f5f5f7]" id="spaces" dir={isAr ? 'rtl' : 'ltr'}>
+    <section className="py-16 sm:py-24 lg:py-32 bg-[#f5f5f7]" id="spaces" dir={isAr ? 'rtl' : 'ltr'}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
 
         {/* Header — centered */}
-        <FadeUp className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="inline-block text-sm font-bold tracking-widest uppercase mb-5"
+        <FadeUp className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20">
+          <span className="inline-block text-xs sm:text-sm font-bold tracking-widest uppercase mb-4 sm:mb-5"
             style={{ color: '#9B1B5E' }}>
             {t('spaces.label')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight mb-6"
+          <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight mb-5 sm:mb-6"
             style={{ color: '#1d1d1f' }}>
             {t('spaces.title')}
           </h2>
-          <p className="text-base leading-[1.5]" style={{ color: 'rgba(0,0,0,0.48)' }}>
+          <p className="text-sm sm:text-base leading-[1.5]" style={{ color: 'rgba(0,0,0,0.48)' }}>
             {t('spaces.subtitle')}
           </p>
         </FadeUp>
 
         {/* Spaces Grid */}
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" staggerDelay={0.08}>
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" staggerDelay={0.08}>
           {spaces.map((space, i) => (
             <StaggerItem key={i} className={`h-full ${space.fullWidth ? 'sm:col-span-2 lg:col-span-3' : ''}`}>
               <div className={`bg-white rounded-2xl overflow-hidden group h-full flex ${space.fullWidth ? 'flex-col md:flex-row' : 'flex-col'}`}>
@@ -335,17 +335,17 @@ function BookingModal({
 
   const today = new Date().toISOString().split('T')[0];
   const inputClass =
-    'w-full px-3.5 py-2.5 border border-neutral-200 rounded-lg text-neutral-900 text-sm bg-white placeholder:text-neutral-400 focus:border-[#9B1B5E] focus:ring-2 focus:ring-[#9B1B5E]/15 outline-none transition-all';
+    'w-full px-3.5 py-2.5 border border-neutral-200 rounded-lg text-neutral-900 text-base sm:text-sm bg-white placeholder:text-neutral-400 focus:border-[#9B1B5E] focus:ring-2 focus:ring-[#9B1B5E]/15 outline-none transition-all';
 
   return (
     <div
-      className="fixed inset-0 z-[1000] flex items-center justify-center p-4 animate-fade-in"
+      className="fixed inset-0 z-[1000] flex items-stretch sm:items-center justify-center p-0 sm:p-4 animate-fade-in"
       style={{ backgroundColor: 'rgba(12,35,64,0.55)' }}
       onClick={onClose}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       <div
-        className="bg-white rounded-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto shadow-2xl"
+        className="bg-white sm:rounded-2xl w-full max-w-lg h-full sm:h-auto sm:max-h-[90vh] overflow-y-auto shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

@@ -69,20 +69,20 @@ export default function CalendarPage() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6 sm:mb-8">
         <div>
-          <h1 className="text-2xl font-bold">Meeting Room Calendar</h1>
+          <h1 className="text-xl sm:text-2xl font-bold">Meeting Room Calendar</h1>
           {pendingBookings.length > 0 && (
             <p className="text-sm text-amber-400 mt-1">{pendingBookings.length} pending booking(s) awaiting approval</p>
           )}
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           {/* Room Filter */}
-          <div className="relative">
+          <div className="relative flex-1 min-w-[160px] sm:flex-initial">
             <select
               value={selectedRoom}
               onChange={e => setSelectedRoom(e.target.value)}
-              className="appearance-none px-4 py-2.5 pr-10 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-sm focus:border-[#c4197d] outline-none"
+              className="w-full appearance-none px-4 py-2.5 pr-10 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white text-sm focus:border-[#c4197d] outline-none"
             >
               <option value="all">All Rooms</option>
               {rooms.map(r => (
@@ -100,7 +100,7 @@ export default function CalendarPage() {
       </div>
 
       {view === 'calendar' ? (
-        <div className="surface-card rounded-2xl p-6" style={{ height: 650 }}>
+        <div className="surface-card rounded-2xl p-3 sm:p-6 h-[520px] sm:h-[650px]">
           <Calendar
             localizer={localizer}
             events={calendarEvents}
@@ -119,8 +119,8 @@ export default function CalendarPage() {
           />
         </div>
       ) : (
-        <div className="surface-card rounded-2xl overflow-hidden">
-          <table className="w-full">
+        <div className="surface-card rounded-2xl overflow-x-auto">
+          <table className="w-full min-w-[780px]">
             <thead>
               <tr className="border-b border-white/[0.08]">
                 <th className="px-6 py-4 text-left text-xs font-semibold text-[#7a779a] uppercase">Customer</th>
@@ -171,11 +171,11 @@ export default function CalendarPage() {
 
       {/* Booking Detail Modal */}
       {selectedBooking && (
-        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4" onClick={() => setSelectedBooking(null)}>
-          <div className="bg-[#141043] border border-white/[0.08] rounded-2xl w-full max-w-lg p-8" onClick={e => e.stopPropagation()}>
-            <h2 className="text-xl font-bold mb-6">Booking Details</h2>
+        <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-0 sm:p-4" onClick={() => setSelectedBooking(null)}>
+          <div className="bg-[#141043] border border-white/[0.08] sm:rounded-2xl w-full max-w-lg h-full sm:h-auto sm:max-h-[90vh] overflow-y-auto p-5 sm:p-8" onClick={e => e.stopPropagation()}>
+            <h2 className="text-lg sm:text-xl font-bold mb-5 sm:mb-6">Booking Details</h2>
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div><span className="text-xs text-[#7a779a]">Customer</span><p className="font-medium">{selectedBooking.customerName}</p></div>
                 <div><span className="text-xs text-[#7a779a]">Email</span><p className="font-medium">{selectedBooking.customerEmail}</p></div>
                 <div><span className="text-xs text-[#7a779a]">Phone</span><p className="font-medium">{selectedBooking.customerPhone}</p></div>

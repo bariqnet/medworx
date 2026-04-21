@@ -20,12 +20,12 @@ export default function About() {
     <section className="bg-[#f5f5f7]" id="about" dir={isAr ? 'rtl' : 'ltr'}>
 
       {/* Top: Hero-style centered heading */}
-      <FadeUp className="pt-24 lg:pt-32 pb-16 lg:pb-20 text-center px-4 sm:px-6 lg:px-16">
-        <span className="inline-block text-sm font-bold tracking-widest uppercase mb-5"
+      <FadeUp className="pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 text-center px-4 sm:px-6 lg:px-16">
+        <span className="inline-block text-xs sm:text-sm font-bold tracking-widest uppercase mb-4 sm:mb-5"
           style={{ color: '#9B1B5E' }}>
           {t('about.label')}
         </span>
-        <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight max-w-4xl mx-auto"
+        <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight max-w-4xl mx-auto"
           style={{ color: '#1d1d1f' }}>
           {t('about.title')}
         </h2>
@@ -33,7 +33,7 @@ export default function About() {
 
       {/* Full-width image */}
       <ScaleUp className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
-        <div className="rounded-2xl overflow-hidden aspect-[21/9]">
+        <div className="rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9]">
           <img
             src="/about1.JPG"
             alt="MedWorx workspace"
@@ -46,14 +46,14 @@ export default function About() {
       </ScaleUp>
 
       {/* Description + CTA */}
-      <FadeUp delay={0.15} className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-16 pt-16 lg:pt-20 pb-8 text-center">
-        <p className="text-lg sm:text-xl leading-[1.6] mb-10"
+      <FadeUp delay={0.15} className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-16 pt-12 sm:pt-16 lg:pt-20 pb-6 sm:pb-8 text-center">
+        <p className="text-base sm:text-xl leading-[1.6] mb-8 sm:mb-10"
           style={{ color: 'rgba(0,0,0,0.8)' }}>
           {t('about.description')}
         </p>
 
         {/* Ecosystem statement */}
-        <p className="text-base font-semibold leading-[1.4] mb-10"
+        <p className="text-sm sm:text-base font-semibold leading-[1.4] mb-8 sm:mb-10"
           style={{ color: '#1d1d1f' }}>
           {isAr
             ? 'نحن لسنا مجرد مساحة عمل — نحن المنظومة المتكاملة للقطاع الطبي.'
@@ -75,13 +75,13 @@ export default function About() {
       </FadeUp>
 
       {/* Pillars — 4 columns */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 pt-12 pb-24 lg:pb-32">
-        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" staggerDelay={0.12}>
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 pt-8 sm:pt-12 pb-16 sm:pb-24 lg:pb-32">
+        <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5" staggerDelay={0.12}>
           {pillars.map((p, i) => {
             const Icon = p.icon;
             return (
               <StaggerItem key={i}>
-                <div className="bg-white rounded-2xl p-7 lg:p-8 text-center">
+                <div className="bg-white rounded-2xl p-6 sm:p-7 lg:p-8 text-center">
                   <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-5"
                     style={{ backgroundColor: i % 2 === 0 ? '#0C2340' : '#9B1B5E' }}>
                     <Icon className="w-5 h-5 text-white" />

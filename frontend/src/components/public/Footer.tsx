@@ -33,8 +33,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#0C2340] text-white" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Main Footer */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 pt-16 pb-10">
-        <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-12" staggerDelay={0.08}>
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 pt-12 sm:pt-16 pb-8 sm:pb-10">
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-8 gap-x-6 sm:gap-10 mb-10 sm:mb-12" staggerDelay={0.08}>
 
           {/* Brand */}
           <StaggerItem className="col-span-2 md:col-span-4 lg:col-span-1">

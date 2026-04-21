@@ -10,7 +10,7 @@ export default function Hero() {
   const Arrow = isAr ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="relative min-h-[640px] lg:min-h-[720px] flex items-center" id="home">
+    <section className="relative min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex items-center" id="home">
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 z-10"
@@ -32,13 +32,13 @@ export default function Hero() {
       </div>
 
       <div
-        className={`relative z-20 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 w-full pt-36 pb-32 lg:pt-44 lg:pb-36 ${isAr ? 'text-right' : 'text-left'}`}
+        className={`relative z-20 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 w-full pt-28 pb-36 sm:pt-36 sm:pb-32 lg:pt-44 lg:pb-36 ${isAr ? 'text-right' : 'text-left'}`}
         dir={isAr ? 'rtl' : 'ltr'}
       >
         <div className="max-w-2xl">
           {/* Brand Name */}
           <motion.h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-3"
+            className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.1] mb-3"
             style={{ color: '#B82D73' }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ export default function Hero() {
 
           {/* Tagline */}
           <motion.h2
-            className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white leading-[1.4] mb-8"
+            className="text-lg sm:text-2xl lg:text-3xl font-semibold text-white leading-[1.4] mb-6 sm:mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
@@ -68,7 +68,7 @@ export default function Hero() {
 
           {/* Description */}
           <motion.p
-            className="text-base text-white/55 mb-10 leading-[1.8] max-w-lg"
+            className="text-sm sm:text-base text-white/55 mb-8 sm:mb-10 leading-[1.8] max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
@@ -86,7 +86,7 @@ export default function Hero() {
             {/* Primary CTA */}
             <a
               href="#services"
-              className="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg font-semibold text-sm text-white transition-all no-underline hover:opacity-90"
+              className="group inline-flex items-center gap-2.5 px-5 sm:px-7 py-3 sm:py-3.5 rounded-lg font-semibold text-sm text-white transition-all no-underline hover:opacity-90"
               style={{ backgroundColor: '#9B1B5E' }}
             >
               {t('hero.explore')}
@@ -96,7 +96,7 @@ export default function Hero() {
             {/* Secondary CTA */}
             <a
               href="tel:+9647760206080"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-white text-primary-900 rounded-lg font-semibold text-sm hover:bg-neutral-100 transition-all no-underline"
+              className="inline-flex items-center gap-2.5 px-5 sm:px-7 py-3 sm:py-3.5 bg-white text-primary-900 rounded-lg font-semibold text-sm hover:bg-neutral-100 transition-all no-underline"
             >
               <Phone className="w-4 h-4" />
               {isAr ? 'اتصل بنا' : 'Call Us'}
@@ -112,8 +112,8 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
-          <div className="bg-white rounded-t-2xl shadow-2xl shadow-black/10 px-6 sm:px-10 py-7 grid grid-cols-3"
+        <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-16">
+          <div className="bg-white rounded-t-2xl shadow-2xl shadow-black/10 px-3 sm:px-10 py-5 sm:py-7 grid grid-cols-3"
             dir={isAr ? 'rtl' : 'ltr'}>
             {[
               { value: '250,000+', label: t('hero.community') },
@@ -122,10 +122,10 @@ export default function Hero() {
             ].map((stat, i) => (
               <div
                 key={i}
-                className={`text-center px-4 ${i > 0 ? 'border-s border-neutral-200' : ''}`}
+                className={`text-center px-2 sm:px-4 min-w-0 ${i > 0 ? 'border-s border-neutral-200' : ''}`}
               >
-                <div className="text-2xl sm:text-3xl font-bold text-primary-900 mb-1">{stat.value}</div>
-                <div className="text-xs sm:text-sm text-neutral-500">{stat.label}</div>
+                <div className="text-lg sm:text-3xl font-bold text-primary-900 mb-0.5 sm:mb-1 whitespace-nowrap">{stat.value}</div>
+                <div className="text-[11px] sm:text-sm leading-tight text-neutral-500 line-clamp-2">{stat.label}</div>
               </div>
             ))}
           </div>

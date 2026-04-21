@@ -64,30 +64,30 @@ export default function Contact() {
   ];
 
   const inputClass =
-    'w-full px-4 py-3 rounded-xl text-sm bg-white outline-none transition-all border-none' +
+    'w-full px-4 py-3 rounded-xl text-base sm:text-sm bg-white outline-none transition-all border-none' +
     ' focus:ring-2 focus:ring-[#9B1B5E]/20' +
     (isAr ? ' text-right' : ' text-left');
 
   return (
-    <section className="py-24 lg:py-32 bg-[#f5f5f7]" id="contact" dir={isAr ? 'rtl' : 'ltr'}>
+    <section className="py-16 sm:py-24 lg:py-32 bg-[#f5f5f7]" id="contact" dir={isAr ? 'rtl' : 'ltr'}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
 
         {/* Header */}
-        <FadeUp className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="inline-block text-sm font-bold tracking-widest uppercase mb-5"
+        <FadeUp className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20">
+          <span className="inline-block text-xs sm:text-sm font-bold tracking-widest uppercase mb-4 sm:mb-5"
             style={{ color: '#9B1B5E' }}>
             {t('contact.label')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight mb-6"
+          <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight mb-5 sm:mb-6"
             style={{ color: '#1d1d1f' }}>
             {t('contact.title')}
           </h2>
-          <p className="text-base leading-[1.5]" style={{ color: 'rgba(0,0,0,0.48)' }}>
+          <p className="text-sm sm:text-base leading-[1.5]" style={{ color: 'rgba(0,0,0,0.48)' }}>
             {t('contact.subtitle')}
           </p>
         </FadeUp>
 
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+        <div className="grid lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12">
 
           {/* Contact Info */}
           <div className={`lg:col-span-2 ${isAr ? 'lg:order-2' : ''}`}>
@@ -156,7 +156,7 @@ export default function Contact() {
 
           {/* Form */}
           <SlideIn direction={isAr ? 'left' : 'right'} delay={0.15} className={`lg:col-span-3 ${isAr ? 'lg:order-1' : ''}`}>
-            <div className="bg-white rounded-2xl p-8 lg:p-10">
+            <div className="bg-white rounded-2xl p-5 sm:p-8 lg:p-10">
               {success ? (
                 <div className="text-center py-16">
                   <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"

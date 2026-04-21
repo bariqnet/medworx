@@ -34,24 +34,24 @@ export default function BlogDetailPage() {
       <Navbar />
 
       {/* Header */}
-      <section className="bg-primary-900 pt-32 pb-16">
+      <section className="bg-primary-900 pt-24 sm:pt-32 pb-12 sm:pb-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors no-underline mb-8"
+            className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors no-underline mb-6 sm:mb-8"
           >
             {locale === 'ar' ? <ArrowRight className="w-4 h-4" /> : <ArrowLeft className="w-4 h-4" />}
             {locale === 'ar' ? 'العودة للمدونة' : 'Back to Blog'}
           </Link>
 
           <h1
-            className="text-3xl sm:text-4xl font-bold text-white leading-tight mb-6"
+            className="text-2xl sm:text-4xl font-bold text-white leading-tight mb-5 sm:mb-6"
             dir={locale === 'ar' ? 'rtl' : 'ltr'}
           >
             {locale === 'ar' ? blog.titleAr : blog.titleEn}
           </h1>
 
-          <div className="flex items-center gap-5 text-sm text-white/50">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/50">
             <span className="flex items-center gap-1.5">
               <User className="w-4 h-4" />
               {blog.author}
@@ -70,10 +70,10 @@ export default function BlogDetailPage() {
       </section>
 
       {/* Content */}
-      <article className="py-12 bg-white">
+      <article className="py-8 sm:py-12 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
           {blog.coverImage && (
-            <div className="rounded-xl overflow-hidden mb-10 aspect-video -mt-20 relative shadow-xl">
+            <div className="rounded-xl overflow-hidden mb-8 sm:mb-10 aspect-video -mt-12 sm:-mt-20 relative shadow-xl">
               <img src={blog.coverImage} alt="" className="w-full h-full object-cover" />
             </div>
           )}

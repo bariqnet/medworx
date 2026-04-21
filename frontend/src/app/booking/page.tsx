@@ -56,32 +56,32 @@ export default function BookingPage() {
   };
 
   const inputClass =
-    'w-full px-4 py-3 border border-neutral-300 rounded-lg text-neutral-900 text-sm bg-white placeholder:text-neutral-400 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all';
+    'w-full px-4 py-3 border border-neutral-300 rounded-lg text-neutral-900 text-base sm:text-sm bg-white placeholder:text-neutral-400 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all';
 
   return (
     <main>
       <Navbar />
 
       {/* Page Header */}
-      <section className="bg-primary-900 pt-32 pb-16">
+      <section className="bg-primary-900 pt-24 sm:pt-32 pb-12 sm:pb-16">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
-          <nav className="flex items-center gap-2 text-sm text-white/40 mb-6">
+          <nav className="flex items-center gap-2 text-xs sm:text-sm text-white/40 mb-4 sm:mb-6">
             <Link href="/" className="hover:text-white/70 transition-colors no-underline text-white/40">
               {t('nav.home')}
             </Link>
             <span>/</span>
             <span className="text-white/70">{t('nav.booking')}</span>
           </nav>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white">{t('booking.title')}</h1>
-          <p className="text-white/60 mt-3 text-base max-w-xl">{t('booking.subtitle')}</p>
+          <h1 className="text-2xl sm:text-4xl font-bold text-white">{t('booking.title')}</h1>
+          <p className="text-white/60 mt-2 sm:mt-3 text-sm sm:text-base max-w-xl">{t('booking.subtitle')}</p>
         </div>
       </section>
 
       {/* Booking Form */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-10 sm:py-16 bg-neutral-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-16">
           {submitted ? (
-            <div className="bg-white rounded-xl p-16 text-center shadow-sm">
+            <div className="bg-white rounded-xl p-8 sm:p-16 text-center shadow-sm">
               <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-5">
                 <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
@@ -97,13 +97,13 @@ export default function BookingPage() {
               </Link>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 lg:p-10 shadow-sm">
+            <form onSubmit={handleSubmit} className="bg-white rounded-xl p-5 sm:p-8 lg:p-10 shadow-sm">
               {/* Room Selection */}
               <div className="mb-8">
                 <label className="block text-sm font-medium text-primary-900 mb-3">
                   {t('booking.selectRoom')}
                 </label>
-                <div className="grid md:grid-cols-2 gap-3">
+                <div className="grid sm:grid-cols-2 gap-3">
                   {rooms.map((room) => (
                     <label
                       key={room._id}
@@ -126,10 +126,10 @@ export default function BookingPage() {
                           {locale === 'ar' ? room.nameAr : room.nameEn}
                         </span>
                         {selectedRoom === room._id && (
-                          <Check className="w-4 h-4 text-accent" />
+                          <Check className="w-4 h-4 text-accent flex-shrink-0" />
                         )}
                       </div>
-                      <div className="flex items-center gap-3 text-xs text-neutral-500">
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-neutral-500">
                         <span className="flex items-center gap-1">
                           <Users className="w-3 h-3" />
                           {room.capacity}
@@ -157,7 +157,7 @@ export default function BookingPage() {
                 <h3 className="text-sm font-semibold text-primary-900 mb-4">
                   {locale === 'ar' ? 'معلوماتك' : 'Your Information'}
                 </h3>
-                <div className="grid md:grid-cols-2 gap-4 mb-4">
+                <div className="grid sm:grid-cols-2 gap-4 mb-4">
                   <div>
                     <label className="block text-sm font-medium text-primary-900 mb-2">
                       {t('contact.name')}
@@ -171,7 +171,7 @@ export default function BookingPage() {
                     <input name="customerEmail" type="email" required className={inputClass} />
                   </div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-primary-900 mb-2">
                       {t('contact.phone')}
@@ -192,7 +192,7 @@ export default function BookingPage() {
                 <h3 className="text-sm font-semibold text-primary-900 mb-4">
                   {locale === 'ar' ? 'التاريخ والوقت' : 'Date & Time'}
                 </h3>
-                <div className="grid md:grid-cols-3 gap-4">
+                <div className="grid sm:grid-cols-3 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-primary-900 mb-2">
                       {t('booking.selectDate')}

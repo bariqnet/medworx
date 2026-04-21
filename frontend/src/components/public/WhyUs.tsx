@@ -47,25 +47,25 @@ export default function WhyUs() {
   const isAr = locale === 'ar';
 
   return (
-    <section className="py-24 lg:py-32 bg-[#0C2340]" id="whyus" dir={isAr ? 'rtl' : 'ltr'}>
+    <section className="py-16 sm:py-24 lg:py-32 bg-[#0C2340]" id="whyus" dir={isAr ? 'rtl' : 'ltr'}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
 
         {/* Header */}
-        <FadeUp className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="inline-block text-sm font-bold tracking-widest uppercase mb-5"
+        <FadeUp className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20">
+          <span className="inline-block text-xs sm:text-sm font-bold tracking-widest uppercase mb-4 sm:mb-5"
             style={{ color: '#B82D73' }}>
             {t('whyUs.label')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight text-white mb-6">
+          <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight text-white mb-5 sm:mb-6">
             {t('whyUs.title')}
           </h2>
-          <p className="text-base leading-[1.7]" style={{ color: 'rgba(255,255,255,0.56)' }}>
+          <p className="text-sm sm:text-base leading-[1.7]" style={{ color: 'rgba(255,255,255,0.56)' }}>
             {t('whyUs.subtitle')}
           </p>
         </FadeUp>
 
         {/* Top row: 3 pillars */}
-        <StaggerContainer className="grid md:grid-cols-3 gap-5 mb-5" staggerDelay={0.12}>
+        <StaggerContainer className="grid md:grid-cols-3 gap-4 sm:gap-5 mb-4 sm:mb-5" staggerDelay={0.12}>
           {pillars.slice(0, 3).map((p, i) => {
             const Icon = p.icon;
             return (
@@ -91,12 +91,12 @@ export default function WhyUs() {
         </StaggerContainer>
 
         {/* Bottom row: 2 pillars */}
-        <StaggerContainer className="grid md:grid-cols-2 gap-5" staggerDelay={0.12}>
+        <StaggerContainer className="grid md:grid-cols-2 gap-4 sm:gap-5" staggerDelay={0.12}>
           {pillars.slice(3).map((p, i) => {
             const Icon = p.icon;
             return (
               <StaggerItem key={i}>
-                <div className="rounded-2xl p-8 flex items-start gap-5"
+                <div className="rounded-2xl p-6 sm:p-8 flex items-start gap-4 sm:gap-5"
                   style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}>
                   <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
                     style={{ backgroundColor: 'rgba(155,27,94,0.2)' }}>

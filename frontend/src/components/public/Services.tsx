@@ -60,16 +60,16 @@ export default function Services() {
   const isAr = locale === 'ar';
 
   return (
-    <section className="bg-white py-24 lg:py-32" id="services" dir={isAr ? 'rtl' : 'ltr'}>
+    <section className="bg-white py-16 sm:py-24 lg:py-32" id="services" dir={isAr ? 'rtl' : 'ltr'}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16">
 
         {/* Header */}
-        <FadeUp className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-          <span className="inline-block text-sm font-bold tracking-widest uppercase mb-5"
+        <FadeUp className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20">
+          <span className="inline-block text-xs sm:text-sm font-bold tracking-widest uppercase mb-4 sm:mb-5"
             style={{ color: '#9B1B5E' }}>
             {t('services.label')}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight"
+          <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold leading-[1.2] tracking-tight"
             style={{ color: '#1d1d1f' }}>
             {t('services.title')}
           </h2>
@@ -94,17 +94,17 @@ export default function Services() {
                   </ScaleUp>
 
                   {/* Content */}
-                  <SlideIn direction={imageFirst ? (isAr ? 'left' : 'right') : (isAr ? 'right' : 'left')} delay={i * 0.1 + 0.1} className={`p-8 lg:p-12 xl:p-14 flex flex-col justify-center ${isAr ? 'text-right' : 'text-left'}`}>
-                    <div className="flex items-center gap-3 mb-5">
-                      <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+                  <SlideIn direction={imageFirst ? (isAr ? 'left' : 'right') : (isAr ? 'right' : 'left')} delay={i * 0.1 + 0.1} className={`p-6 sm:p-8 lg:p-12 xl:p-14 flex flex-col justify-center ${isAr ? 'text-right' : 'text-left'}`}>
+                    <div className="flex items-start sm:items-center gap-3 mb-4 sm:mb-5">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0"
                         style={{ backgroundColor: i % 2 === 0 ? '#0C2340' : '#9B1B5E' }}>
                         <Icon className="w-5 h-5 text-white" />
                       </div>
-                      <h3 className="text-xl lg:text-2xl font-semibold" style={{ color: '#1d1d1f' }}>
+                      <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold" style={{ color: '#1d1d1f' }}>
                         {isAr ? service.titleAr : service.titleEn}
                       </h3>
                     </div>
-                    <p className="text-[15px] leading-[1.8]" style={{ color: 'rgba(0,0,0,0.56)' }}>
+                    <p className="text-sm sm:text-[15px] leading-[1.7] sm:leading-[1.8]" style={{ color: 'rgba(0,0,0,0.56)' }}>
                       {isAr ? service.descAr : service.descEn}
                     </p>
                   </SlideIn>

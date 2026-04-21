@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Mail, MailOpen, Trash2, Phone, Clock } from 'lucide-react';
+import { Mail, MailOpen, Trash2, Phone, Clock, ArrowLeft } from 'lucide-react';
 import type { ContactMessage } from '@/types';
 
 export default function MessagesPage() {
@@ -35,14 +35,14 @@ export default function MessagesPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-8">Messages</h1>
+      <h1 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8">Messages</h1>
       <div className="grid lg:grid-cols-[380px_1fr] gap-6">
         {/* Message List */}
-        <div className="surface-card rounded-2xl overflow-hidden">
+        <div className={`surface-card rounded-2xl overflow-hidden ${selected ? 'hidden lg:block' : ''}`}>
           <div className="p-4 border-b border-white/[0.08]">
             <span className="text-sm text-[#7a779a]">{messages.filter(m => !m.isRead).length} unread</span>
           </div>
-          <div className="max-h-[600px] overflow-y-auto divide-y divide-white/[0.04]">
+          <div className="max-h-[70vh] lg:max-h-[600px] overflow-y-auto divide-y divide-white/[0.04]">
             {messages.map((msg) => (
               <div key={msg._id} onClick={() => openMessage(msg)} className={`p-4 cursor-pointer hover:bg-white/[0.03] transition-all ${selected?._id === msg._id ? 'bg-white/[0.05]' : ''} ${!msg.isRead ? 'border-l-2 border-l-[#c4197d]' : ''}`}>
                 <div className="flex items-start justify-between">
@@ -66,19 +66,25 @@ export default function MessagesPage() {
         </div>
 
         {/* Message Detail */}
-        <div className="surface-card rounded-2xl p-8">
+        <div className={`surface-card rounded-2xl p-5 sm:p-8 ${!selected ? 'hidden lg:flex' : ''}`}>
           {selected ? (
-            <div>
-              <h2 className="text-lg font-bold mb-1">{selected.name}</h2>
-              <div className="flex items-center gap-4 text-sm text-[#7a779a] mb-6">
-                <span>{selected.email}</span>
+            <div className="w-full">
+              <button
+                onClick={() => setSelected(null)}
+                className="lg:hidden inline-flex items-center gap-2 text-sm text-[#7a779a] hover:text-white transition-colors mb-4"
+              >
+                <ArrowLeft className="w-4 h-4" /> Back to list
+              </button>
+              <h2 className="text-lg font-bold mb-1 break-words">{selected.name}</h2>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-[#7a779a] mb-6">
+                <span className="break-all">{selected.email}</span>
                 <span className="flex items-center gap-1"><Phone className="w-3.5 h-3.5" />{selected.phone}</span>
               </div>
               <div className="mb-4">
                 <span className="px-3 py-1 rounded-full bg-[#c4197d]/10 text-[#e84393] text-xs font-medium">{selected.service}</span>
               </div>
-              <div className="bg-white/[0.02] rounded-xl p-6">
-                <p className="text-[#b8b5d0] leading-relaxed whitespace-pre-wrap">{selected.message}</p>
+              <div className="bg-white/[0.02] rounded-xl p-4 sm:p-6">
+                <p className="text-[#b8b5d0] leading-relaxed whitespace-pre-wrap break-words">{selected.message}</p>
               </div>
               {selected.createdAt && (
                 <p className="text-xs text-[#7a779a] mt-4">Received: {new Date(selected.createdAt).toLocaleString()}</p>
