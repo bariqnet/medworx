@@ -37,7 +37,6 @@ export default function Navbar() {
     { href: isHomepage ? '#services' : '/#services', label: t('nav.services') },
     { href: isHomepage ? '#spaces' : '/#spaces', label: t('nav.spaces') },
     { href: isHomepage ? '#whyus' : '/#whyus', label: t('nav.whyUs') },
-    { href: '/blog', label: t('nav.blog') },
     { href: isHomepage ? '#contact' : '/#contact', label: t('nav.contact') },
   ];
 

@@ -148,7 +148,7 @@ const spaces: Space[] = [
     titleAr: 'غرفة كبار الشخصيات (VIP)',
     descEn: 'A dedicated room for high-level executive meetings with elevated privacy for sensitive decisions, a distinctive view that enhances the meeting experience, and the latest equipment fit for important gatherings.',
     descAr: 'غرفة مخصصة للاجتماعات التنفيذية رفيعة المستوى — مستوى عالٍ من الخصوصية لقرارات واجتماعات حساسة، إطلالة (View) مميزة تعزز تجربة الاجتماع، ومجهزة بأحدث الأجهزة والتقنيات المناسبة للأحداث والاجتماعات المهمة.',
-    image: '/o1.png',
+    image: '/o1.jpeg',
     tagEn: 'From 25,000 IQD/hr',
     tagAr: 'من 25,000 د.ع/الساعة',
     tagNoteEn: 'Capacity: up to 20 attendees · Premium view',

@@ -21,9 +21,10 @@ export default function Hero() {
           }}
         />
         <motion.div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-contain sm:bg-cover bg-top sm:bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/h1.jpeg')`,
+            backgroundColor: '#0C2340',
           }}
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -116,7 +117,7 @@ export default function Hero() {
           <div className="bg-white rounded-t-2xl shadow-2xl shadow-black/10 px-3 sm:px-10 py-5 sm:py-7 grid grid-cols-3"
             dir={isAr ? 'rtl' : 'ltr'}>
             {[
-              { value: '250,000+', label: t('hero.community') },
+              { value: '100,000+', label: t('hero.community') },
               { value: '100+', label: t('hero.partners') },
               { value: '150+', label: t('hero.courses') },
             ].map((stat, i) => (

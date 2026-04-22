@@ -19,7 +19,6 @@ export default function Footer() {
   const company = [
     { label: t('nav.about'), href: '#about' },
     { label: isAr ? 'الرؤية والرسالة' : 'Vision & Mission', href: '#vision' },
-    { label: t('nav.blog'), href: '/blog' },
     { label: t('nav.contact'), href: '#contact' },
   ];
 
@@ -52,11 +51,11 @@ export default function Footer() {
               {t('footer.tagline')}
             </p>
             {/* Social */}
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-2.5">
               {[
-                { icon: Instagram, href: 'https://www.instagram.com/medworx?igsh=aXI2NWJkb2dxcjZ2', label: 'MedWorx' },
-                { icon: Instagram, href: 'https://www.instagram.com/medworx.academy?igsh=bmZ0emg3b2xvdDh3', label: 'Academy' },
-                { icon: Instagram, href: 'https://www.instagram.com/medworx.cs?igsh=MWI0b2piMnM5MThrbQ==', label: 'Creative' },
+                { icon: Instagram, href: 'https://www.instagram.com/medworx?igsh=aXI2NWJkb2dxcjZ2', handle: '@medworx', label: isAr ? 'مدووركس' : 'MedWorx' },
+                { icon: Instagram, href: 'https://www.instagram.com/medworx.academy?igsh=bmZ0emg3b2xvdDh3', handle: '@medworx.academy', label: isAr ? 'أكاديمية مدووركس' : 'MedWorx Academy' },
+                { icon: Instagram, href: 'https://www.instagram.com/medworx.cs?igsh=MWI0b2piMnM5MThrbQ==', handle: '@medworx.cs', label: isAr ? 'الحلول الإبداعية' : 'Creative Solutions' },
               ].map((social, i) => {
                 const Icon = social.icon;
                 return (
@@ -65,11 +64,22 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-xl flex items-center justify-center transition-all"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.48)' }}
+                    className="inline-flex items-center gap-2.5 no-underline transition-all hover:text-white group"
+                    style={{ color: 'rgba(255,255,255,0.56)' }}
                     aria-label={social.label}
                   >
-                    <Icon size={16} />
+                    <span
+                      className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all group-hover:bg-white/[0.14]"
+                      style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+                    >
+                      <Icon size={16} />
+                    </span>
+                    <span className="flex flex-col leading-tight min-w-0">
+                      <span className="text-sm font-medium truncate">{social.label}</span>
+                      <span className="text-[11px] truncate" style={{ color: 'rgba(255,255,255,0.40)' }} dir="ltr">
+                        {social.handle}
+                      </span>
+                    </span>
                   </a>
                 );
               })}
