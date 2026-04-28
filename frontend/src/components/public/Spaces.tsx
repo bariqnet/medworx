@@ -99,7 +99,7 @@ const spaces: Space[] = [
     titleAr: 'غرفة اجتماعات ق4',
     descEn: 'Quiet room for small meetings and private sessions — a focused environment that supports productivity, equipped with a smart screen.',
     descAr: 'غرفة هادئة للاجتماعات الصغيرة والجلسات الخاصة — بيئة تضمن التركيز والإنتاجية، ومزوّدة بشاشة ذكية.',
-    image: '/o4.jpg',
+    image: '/l4.jpeg',
     tagEn: 'From 15,000 IQD/hr',
     tagAr: 'من 15,000 د.ع/الساعة',
     tagNoteEn: 'Capacity: 15 – 20 attendees',
